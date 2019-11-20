@@ -1,0 +1,512 @@
+else if (stat == "lrt") {
+y <- apply(x, 1, function(a) {
+tab <- table(a, data[, 2])
+return(lrt.stat(tab))
+})
+}
+return(y)
+}
+y <- perm.stat(meltdata, stat = "abc")
+perm.stat <- function(data, stat, nperms = 10e4, seed = 1234) {
+stopifnot(stat %in% c("chisq","lrt"), message("Not Implemented yet! Only 'chisq' and 'lrt' is available."))
+set.seed(seed)
+x <- sapply((1:stat), function(a){ sample(data[, 1], size = nrow(data)) })
+x <- t(x)
+x <- unique(x)
+if (stat == "chisq") {
+y <- apply(x, 1, function(a) {
+tab <- table(a, data[, 2])
+return(chisq.stat(tab))
+})
+}
+else if (stat == "lrt") {
+y <- apply(x, 1, function(a) {
+tab <- table(a, data[, 2])
+return(lrt.stat(tab))
+})
+}
+return(y)
+}
+y <- perm.stat(meltdata, stat = "abc")
+perm.stat <- function(data, stat, nperms = 10e4, seed = 1234) {
+if (! (stat %in% c("chisq","lrt"))) {
+stop("Not Implemented yet! Only 'chisq' and 'lrt' is available.")
+}
+stopifnot(stat %in% c("chisq","lrt"), message("Not Implemented yet! Only 'chisq' and 'lrt' is available."))
+set.seed(seed)
+x <- sapply((1:stat), function(a){ sample(data[, 1], size = nrow(data)) })
+x <- t(x)
+x <- unique(x)
+if (stat == "chisq") {
+y <- apply(x, 1, function(a) {
+tab <- table(a, data[, 2])
+return(chisq.stat(tab))
+})
+}
+else if (stat == "lrt") {
+y <- apply(x, 1, function(a) {
+tab <- table(a, data[, 2])
+return(lrt.stat(tab))
+})
+}
+return(y)
+}
+y <- perm.stat(meltdata, stat = "abc")
+perm.stat <- function(data, stat, nperms = 10e4, seed = 1234) {
+if (! (stat %in% c("chisq","lrt"))) {
+stop("Not Implemented yet! Only 'chisq' and 'lrt' is available.")
+}
+else {
+set.seed(seed)
+x <- sapply((1:stat), function(a){ sample(data[, 1], size = nrow(data)) })
+x <- t(x)
+x <- unique(x)
+if (stat == "chisq") {
+y <- apply(x, 1, function(a) {
+tab <- table(a, data[, 2])
+return(chisq.stat(tab))
+})
+}
+else if (stat == "lrt") {
+y <- apply(x, 1, function(a) {
+tab <- table(a, data[, 2])
+return(lrt.stat(tab))
+})
+}
+return(y)
+}
+}
+y <- perm.stat(meltdata, stat = "abc")
+y <- perm.stat(meltdata, stat = "chisq", seed = 1911)
+nrow(meltdata)
+perm.stat <- function(data, stat, nperms = 10e4, seed = 1234) {
+if (! (stat %in% c("chisq","lrt"))) {
+stop("Not Implemented yet! Only 'chisq' and 'lrt' is available.")
+}
+else {
+set.seed(seed)
+x <- sapply((1:nperms), function(a){ sample(data[, 1], size = nrow(data)) })
+x <- t(x)
+x <- unique(x)
+if (stat == "chisq") {
+y <- apply(x, 1, function(a) {
+tab <- table(a, data[, 2])
+return(chisq.stat(tab))
+})
+}
+else if (stat == "lrt") {
+y <- apply(x, 1, function(a) {
+tab <- table(a, data[, 2])
+return(lrt.stat(tab))
+})
+}
+return(y)
+}
+}
+y <- perm.stat(meltdata, stat = "chisq", seed = 1911)
+y <- perm.stat(meltdata, stat = "chisq", nperms = 10, seed = 1911)
+y
+y <- perm.stat(meltdata, stat = "chisq", nperms = 100, seed = 1911)
+y
+y <- perm.stat(meltdata, stat = "chisq", nperms = 1000, seed = 1911)
+paste("Approximated p-Value is", sum(y > chisq.stat(data))/10000)
+y <- perm.stat(meltdata, stat = "lrt", nperms = 1000, seed = 1911)
+paste("Approximated p-Value is", sum(y > lrt.stat(data))/1000)
+paste("Approximated p-Value is", sum(y > lrt.stat(data), na.rm = T)/1000)
+summary(y)
+y <- perm.stat(meltdata, stat = "lrt", nperms = 1, seed = 1911)
+set.seed(1911)
+nperms = 1
+set.seed(1911)
+x <- sapply((1:nperms), function(a){ sample(data[, 1], size = nrow(data)) })
+x
+set.seed(1911)
+x <- sapply((1:nperms), function(a){ sample(meltdata[, 1], size = nrow(meltdata)) })
+x <- t(x)
+x <- unique(x)
+table(x)
+tab(x, meltdata$Handedness)
+table(x, meltdata$Handedness)
+lrt.stat <- function(tab) {
+n <- sum(tab)
+rowmars <- apply(tab, 1, sum)
+colmars <- apply(tab, 2, sum)
+exp.tab <- rowmars %*% t(colmars)/n
+return(2*sum(tab * log(tab / exp.tab), na.rm = T))
+}
+y <- perm.stat(meltdata, stat = "lrt", nperms = 1, seed = 1911)
+rm(nperms)
+y <- perm.stat(meltdata, stat = "chisq", nperms = 1000, seed = 1907)
+paste("Approximated p-Value is", sum(y > chisq.stat(data))/1000)
+y <- perm.stat(meltdata, stat = "lrt", nperms = 1000, seed = 1907)
+lrt.stat(data)
+y <- perm.stat(meltdata, stat = "lrt", nperms = 1000, seed = 1907)
+paste("Approximated p-Value is", sum(y > lrt.stat(data))/1000)
+y <- perm.stat(meltdata, stat = "chisq", nperms = 5000, seed = 1911)
+paste("Approximated p-Value is", sum(y > chisq.stat(data))/5000)
+library(ggplot2)
+ggplot(as.data.frame(y), aes(y)) + geom_histogram(binwidth = 0.1)
+ggplot(as.data.frame(y), aes(x = y)) +
+geom_histogram(aes(y=..density..), colour="black", fill="white")+
+geom_density(alpha=.2, fill="#FF6666")
+ggplot(as.data.frame(y), aes(x = y)) +
+geom_histogram(aes(y=..density..), fill="black")+
+geom_density(alpha=.2, fill="#FF6666")
+ggplot(as.data.frame(y), aes(x = y)) +
+geom_histogram(aes(y=..density..), alpha = 0.2, fill="#2222FF")+
+geom_density(alpha=.2, fill="#FF1111")
+ggplot(as.data.frame(y), aes(x = y)) +
+geom_histogram(aes(y=..density..), color = "black", fill="white")+
+geom_density(alpha=.2, fill="#FF1111")
+ggplot(as.data.frame(y), aes(x = y)) +
+geom_histogram(aes(y=..density..), color = "black", fill="white", binwidth = 1)+
+geom_density(alpha=.2, fill="#FF1111") +
+ylab("Density") + xlab("Chi Square statistic under Null hypothesis of independence")
+ggplot(as.data.frame(y), aes(x = y)) +
+geom_histogram(aes(y=..density..), color = "black", fill="white", binwidth = 0.5)+
+geom_density(alpha=.2, fill="#FF1111") +
+ylab("Density") + xlab("Chi Square statistic under Null hypothesis of independence")
+y <- perm.stat(meltdata, stat = "lrt", nperms = 5000, seed = 1911)
+paste("Approximated p-Value is", sum(y > lrt.stat(data))/5000)
+ggplot(as.data.frame(y), aes(x = y)) +
+geom_histogram(aes(y=..density..), color = "black", fill="white", binwidth = 0.5)+
+geom_density(alpha=.2, fill="#FF1111") +
+ylab("Density") + xlab("Likelihood Ratio statistic under Null hypothesis of independence")
+ggplot(as.data.frame(y), aes(x = y)) +
+geom_histogram(aes(y=..density..), color = "black", fill="white", binwidth = 0.5)+
+geom_density(alpha=.2, fill="#FF1111") +
+ylab("Density") + xlab("Likelihood Ratio statistic under Null hypothesis of independence") +
+geom_vline(v = lrt.stat(data), color = "red")
+ggplot(as.data.frame(y), aes(x = y)) +
+geom_histogram(aes(y=..density..), color = "black", fill="white", binwidth = 0.5)+
+geom_density(alpha=.2, fill="#FF1111") +
+ylab("Density") + xlab("Likelihood Ratio statistic under Null hypothesis of independence") +
+geom_vline(xintercept = lrt.stat(data), color = "red")
+ggplot(as.data.frame(y), aes(x = y)) +
+geom_histogram(aes(y=..density..), color = "black", fill="white", binwidth = 0.5)+
+geom_density(alpha=.2, fill="#FF1111") +
+ylab("Density") + xlab("Likelihood Ratio statistic under Null hypothesis of independence") +
+geom_vline(xintercept = lrt.stat(data), color = "red", width = 2)
+ggplot(as.data.frame(y), aes(x = y)) +
+geom_histogram(aes(y=..density..), color = "black", fill="white", binwidth = 0.5)+
+geom_density(alpha=.2, fill="#FF1111") +
+ylab("Density") + xlab("Likelihood Ratio statistic under Null hypothesis of independence") +
+geom_vline(xintercept = lrt.stat(data), color = "red", size = 2)
+ggplot(as.data.frame(y), aes(x = y)) +
+geom_histogram(aes(y=..density..), color = "black", fill="white", binwidth = 0.5)+
+geom_density(alpha=.2, fill="#FF1111") +
+ylab("Density") + xlab("Likelihood Ratio statistic under Null hypothesis of independence") +
+geom_vline(xintercept = lrt.stat(data), color = "red", size = 1, linetype = "dashed")
+y <- perm.stat(meltdata, stat = "chisq", nperms = 5000, seed = 1911)
+paste("Approximated p-Value is", sum(y > chisq.stat(data))/5000)
+ggplot(as.data.frame(y), aes(x = y)) +
+geom_histogram(aes(y=..density..), color = "black", fill="white", binwidth = 0.5)+
+geom_density(alpha=.2, fill="#FF1111") +
+ylab("Density") + xlab("Chi Square statistic under Null hypothesis of independence") +
+geom_vline(xintercept = lrt.stat(data), color = "red", size = 1, linetype = "dashed")
+ggplot(as.data.frame(y), aes(x = y)) +
+geom_histogram(aes(y=..density..), color = "black", fill="white", binwidth = 0.5)+
+geom_density(alpha=.2, fill="#FF1111") +
+ylab("Density") + xlab("Chi Square statistic under Null hypothesis of independence") +
+geom_vline(xintercept = chisq.stat(data), color = "red", size = 1, linetype = "dashed")
+y <- perm.stat(meltdata, stat = "chisq", nperms = 5000, seed = 1911)
+head(y)
+y <- perm.stat(meltdata, stat = "lrt", nperms = 5000, seed = 1911)
+head(y)
+paste("Approximated p-Value is", sum(y > lrt.stat(data))/5000)
+nperms <- c(5, 10, 50, 100, 500, 1000, 5000, 10000)
+for (i in nperms) {
+print(i)
+y <- perm.stat(meltdata, stat = "lrt", nperms = i, seed = 1234)
+print(paste("Approximated p-Value for Chi-square is", sum(y > lrt.stat(data))/i))
+y <- perm.stat(meltdata, stat = "lrt", nperms = i, seed = 1234)
+print(paste("Approximated p-Value for Chi-square is", sum(y > lrt.stat(data))/i))
+}
+set.seed(NA)
+unlink('D:/Current_Workings/Multivariate Assignment/code_cache', recursive = TRUE)
+knit_with_parameters('D:/Current_Workings/Multivariate Assignment/code.Rmd')
+library(logistiX)
+?logistiX
+df <- data.frame(Gender = c("M","F","M","F"), CollegeEd = c("No", "No","Yes","Yes"),
+WhiteJob = c(1, 1, 7, 6), Total = c(8, 6, 10, 6))
+x <- model.matrix(WhiteJob ~ Gender + CollegeEd, df)[, -1]
+x
+df
+rep(df$Gender, each = df$Total)
+apply(df, 1, function(x) rep(x[1], each = x[3]))
+apply(df, 1, function(x) rep(x[1], each = x[4]))
+unlist(apply(df, 1, function(x) rep(x[1], each = x[4])))
+?rep
+tapply(df$Gender, df$Total, rep)
+df
+Gender <- factor(c(rep("M", 8), rep("F", 6), rep("M", 10), rep("F", 6)))
+CollegeEd <- factor(c(rep("No", 14), rep("Yes", 16)))
+WhiteJob <- c(1, rep(0, 7), 1, rep(0, 5), rep(1, 7), rep(0, 3), rep(1, 6))
+longdf <- data.frame(Gender = Gender, CollegeEd = CollegeEd, WhiteJob = WhiteJob)
+x <- model.matrix(WhiteJob ~ Gender + CollegeEd, longdf)[, -1]
+logistiX(x, y = longdf$WhiteJob)
+fit <- logistiX(x, y = longdf$WhiteJob)
+summary(fit)
+Gender <- factor(c(rep(0, 8), rep(1, 6), rep(0, 10), rep(1, 6)))  # Male = 0, Female = 1
+CollegeEd <- factor(c(rep(0, 14), rep(1, 16)))  # No = 0, Yes = 1
+WhiteJob <- c(1, rep(0, 7), 1, rep(0, 5), rep(1, 7), rep(0, 3), rep(1, 6))
+longdf <- data.frame(Gender = Gender, CollegeEd = CollegeEd, WhiteJob = WhiteJob)
+# x <- model.matrix(WhiteJob ~ Gender + CollegeEd, longdf)[, -1]
+fit <- logistiX(longdf[, -3], y = longdf$WhiteJob)
+summary(fit)
+install.packages("revealjs")
+install.packages("revealjs")
+28^2
+x = 1:100
+a = -100:100/100
+rm(x)
+b = 1 - a
+x = b * asin(b)
+x = b * asin(b/2)
+y = a * asin(a)
+plot(x, y, pch = 19)
+y = a * acos(a)
+plot(x, y, pch = 19)
+rm(list = ls())
+phi = -100:100 * 10
+x = phi * cos(phi)
+y = phi * sin(phi)
+plot(x, y, pch = 19)
+phi =  -1:1 / 100
+x = phi * cos(phi*100)
+y = phi * sin(phi * 100)
+plot(x, y, pch = 19)
+phi =  seq(-1, 1, by = 1/100)
+x = phi * cos(phi*100)
+y = phi * sin(phi * 100)
+plot(x, y, pch = 19)
+phi = runif(100, min = 1.5*pi,max = 4.5*pi)
+y = phi * sin(phi)
+x = phi * cos(phi)
+plot(x, y)
+plot(x, y, pch = 16)
+set.seed(1234)
+set.seed(1234)
+phi = runif(100, min = 1.5*pi, max = 4.5*pi)
+x = phi * sin(phi)/20
+y = phi * cos(phi)/20
+plot(x, y, pch = 16, colors = heat.colors(100))
+plot(x, y, pch = 16, col = heat.colors(100))
+plot(x, y, pch = 16, col = topo.colors(100))
+?topo.colors
+?pallete
+?palette
+palette()
+plot(x, y, pch = 16, col = topo.colors(100, palette = "blues"))
+library(RColorBrewer)
+brewer.pal(100, "blues")
+?brewer.pal
+brewer.pal(100, "Blues")
+plot(x, y, pch = 16, col = rep(brewer.pal(5, "Blues"), each = 20))
+plot(x, y, pch = 16, col = rep(brewer.pal(5, "Blues"), 20))
+rep(brewer.pal(5, "Blues"), 2)
+rep(brewer.pal(5, "Blues"), each = 2)
+phi = sort(phi)
+x = phi * sin(phi)/20
+y = phi * cos(phi)/20
+plot(x, y, pch = 16, col = rep(brewer.pal(5, "Blues"), 20))
+plot(x, y, pch = 16)
+set.seed(1234)
+phi = runif(100, min = 1.5*pi, max = 4.5*pi)
+x = phi * sin(phi)/20
+y = phi * cos(phi)/100
+plot(x, y, pch = 16, main = "2D Swiss Roll")
+data = cbind(x, y)
+library(MASS)
+pca <- princomp(data)
+pca$sdev
+pca <- prcomp(data)
+pca$x
+plot(pca$x[, 1], pca$x[, 2])
+plot(pca$x[, 1], 1)
+plot(pca$x[, 1], rep(1,100))
+plot(pca$x[, 1], runif(100)/100)
+plot(pca$x[, 1], runif(100)/100, ylim = c(-1,1))
+plot(pca$x[, 1], runif(100)/10, ylim = c(-1,1))
+plot(pca$x[, 1], runif(100)/5, ylim = c(-1,1))
+plot(pca$x[, 1], runif(100)/10, ylim = c(-0.5,0.5))
+install.packages("Rtsne")
+library(Rtsne)
+fit <- Rtsne(data, dims = 1, verbose = TRUE)
+fit$Y
+summary(fit$Y)
+fit$perplexity
+fit <- Rtsne(cbind(x, y), dims = 1, verbose = FALSE, perplexity = 50)
+fit <- Rtsne(cbind(x, y), dims = 1, verbose = FALSE)
+plot(fit$Y)
+plot(fit$Y, runif(100)/10, ylim = c(-0.5,0.5), main = "1D t-SNE", xlab = "1st t-SNE Comp", ylab = "Just Random noise")
+plot(fit$Y*2, runif(100)/10, ylim = c(-0.5,0.5), main = "1D t-SNE", xlab = "1st t-SNE Comp", ylab = "Just Random noise")
+plot(x, y, pch = 16, main = "2D Swiss Roll")
+x
+points(x[50], y[50], cex = 3)
+points(x[20], y[20], cex = 3)
+points(x[5], y[5], cex = 3)
+points(x[100], y[100], cex = 3)
+plot(x, y, pch = 16, main = "2D Swiss Roll")
+points(x[50], y[50], cex = 3)
+points(x[10], y[10], cex = 3)
+which(x < -0.2 & x > -0.3)
+points(x[12], y[12], cex = 3)
+points(x[7], y[7], cex = 3)
+plot(x, y, pch = 16, main = "2D Swiss Roll")
+points(x[50], y[50], cex = 3)
+points(x[7], y[7], cex = 3)
+#points(x[50], y[50], cex = 3)
+#points(x[7], y[7], cex = 3)
+points(x[7, 50], y[7, 50], lty = 2, type = "b", cex = 3)
+#points(x[50], y[50], cex = 3)
+#points(x[7], y[7], cex = 3)
+points(x[c(7, 50)], y[c(7, 50)], lty = 2, type = "b", cex = 3)
+plot(x, y, pch = 16, main = "2D Swiss Roll")
+#points(x[50], y[50], cex = 3)
+#points(x[7], y[7], cex = 3)
+points(x[c(7, 50)], y[c(7, 50)], lty = 2, type = "b", cex = 3)
+?curve
+set.seed(1234)
+phi = runif(100, min = 1.5*pi, max = 4.5*pi)
+phi = sort(phi)
+x = phi * sin(phi)/20
+y = phi * cos(phi)/100
+cols = rep(RColorBrewer::brewer.pal(5, "Blues"), each = 20)
+plot(x, y, pch = 16, main = "2D Swiss Roll", col = cols)
+cols = rep(RColorBrewer::brewer.pal(9, "Blues")[3:7], each = 20)
+plot(x, y, pch = 16, main = "2D Swiss Roll", col = cols)
+cols = rep(RColorBrewer::brewer.pal(9, "Blues")[3:7], each = 20)
+plot(x, y, pch = 16, main = "2D Swiss Roll", col = rev(cols))
+cols = rep(RColorBrewer::brewer.pal(9, "Blues")[5:9], each = 20)
+plot(x, y, pch = 16, main = "2D Swiss Roll", col = rev(cols))
+?RColorBrewer::brewer.pal
+cols = rep(RColorBrewer::brewer.pal(5, "PuBuGn"), each = 20)
+plot(x, y, pch = 16, main = "2D Swiss Roll", col = rev(cols))
+points(x[c(7, 50)], y[c(7, 50)], lty = 2, type = "b", cex = 3)
+points(x[c(7, 70)], y[c(7, 70)], lty = 2, type = "b", cex = 3)
+points(x[c(7, 80)], y[c(7, 80)], lty = 2, type = "b", cex = 3)
+points(x[c(7, 84)], y[c(7, 84)], lty = 2, type = "b", cex = 3)
+cols = rep(RColorBrewer::brewer.pal(5, "BrBG"), each = 20)
+plot(x, y, pch = 16, main = "2D Swiss Roll", col = rev(cols))
+cols = rep(RColorBrewer::brewer.pal(5, "Oranges"), each = 20)
+plot(x, y, pch = 16, main = "2D Swiss Roll", col = rev(cols))
+cols = rep(RColorBrewer::brewer.pal(5, "OrRd"), each = 20)
+plot(x, y, pch = 16, main = "2D Swiss Roll", col = rev(cols))
+cols = rep(RColorBrewer::brewer.pal(10, "OrRd"), each = 10)
+cols = rep(RColorBrewer::brewer.pal(10, "RdBu"), each = 10)
+plot(x, y, pch = 16, main = "2D Swiss Roll", col = rev(cols))
+cols = rep(RColorBrewer::brewer.pal(10, "Spectral"), each = 10)
+plot(x, y, pch = 16, main = "2D Swiss Roll", col = rev(cols))
+cols = rep(RColorBrewer::brewer.pal(10, "RdYIGn"), each = 10)
+cols = rep(RColorBrewer::brewer.pal(10, "RdYiGn"), each = 10)
+cols = rep(RColorBrewer::brewer.pal(10, "RdYlGn"), each = 10)
+plot(x, y, pch = 16, main = "2D Swiss Roll", col = rev(cols))
+cols = rep(RColorBrewer::brewer.pal(10, "RdYlBu"), each = 10)
+plot(x, y, pch = 16, main = "2D Swiss Roll", col = rev(cols))
+cols = rep(RColorBrewer::brewer.pal(10, "Spectral"), each = 10)
+plot(x, y, pch = 16, main = "2D Swiss Roll", col = rev(cols))
+cols = rep(RColorBrewer::brewer.pal(10, "Set3"), each = 10)
+plot(x, y, pch = 16, main = "2D Swiss Roll", col = rev(cols))
+cols = rep(RColorBrewer::brewer.pal(10, "Spectral"), each = 10)
+plot(x, y, pch = 16, main = "2D Swiss Roll", col = rev(cols), cex = 2)
+plot(x, y, pch = 23, main = "2D Swiss Roll", col = rev(cols), cex = 2)
+plot(x, y, pch = 23, main = "2D Swiss Roll", bg = rev(cols), cex = 1.5, col = "black")
+plot(x, y, pch = 0, main = "2D Swiss Roll", bg = rev(cols), cex = 1.5, col = "black")
+plot(x, y, pch = 0, main = "2D Swiss Roll", fill = rev(cols), cex = 1.5, col = "black")
+plot(x, y, pch = 21, main = "2D Swiss Roll", bg = rev(cols), cex = 1.5, col = "black")
+points(x[c(7, 84)], y[c(7, 84)], lty = 2, type = "b", cex = 3)
+pca <- prcomp(cbind(x, y))
+plot(pca$x[, 1], runif(100)/10, ylim = c(-0.5,0.5), main = "1D PCA", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+a <- 0.5 * (phi * sqrt(phi^2 + 1) + asinh(phi))
+a <-
+plot(a, runif(100)/10, ylim = c(-0.5,0.5), main = "1D PCA", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+a <-
+plot(a/10, runif(100)/10, ylim = c(-0.5,0.5), main = "1D PCA", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+a <- (phi * sqrt(phi^2 + 1) + asinh(phi))
+plot(a/10, runif(100)/10, ylim = c(-0.5,0.5), main = "1D PCA", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+plot(a/10 - 12 , runif(100)/10, ylim = c(-0.5,0.5), main = "1D PCA", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+plot(a/10 - 11 , runif(100)/10, ylim = c(-0.5,0.5), main = "1D PCA", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+a <- (2 * phi * sqrt(phi^2 + 1) + asinh(phi))
+plot(a/10 - 11 , runif(100)/10, ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+plot(a , runif(100)/10, ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+a <- (phi * sqrt(phi^2 + 1) + 10 * asinh(phi))
+plot(a , runif(100)/10, ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+a <- (phi * sqrt(phi^2 + 1) + asinh(phi) + phi)
+plot(a , runif(100)/10, ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+a <- (phi * sqrt(phi^2 + 1) + asinh(phi) + 10 * phi * sin(phi))
+plot(a , runif(100)/10, ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+a <- (phi * sqrt(phi^2 + 1) + asinh(phi) + 2 * phi * sin(phi))
+plot(a , runif(100)/10, ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+a <- (phi * sqrt(phi^2 + 1) + asinh(phi))
+plot(a , runif(100)/10, ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+plot(a/10 - 11 , runif(100)/10, ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+plot(a/25 , runif(100)/10, ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+plot(a/100 , runif(100)/10, ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+plot(a/80 , runif(100)/10, ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+plot(a/80 - 1.4, runif(100)/10, ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "1st Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+rm(list = ls())
+set.seed(1234)
+phi = runif(100, min = 1.5*pi, max = 4.5*pi)
+phi = sort(phi)
+cols = rep(RColorBrewer::brewer.pal(10, "Spectral"), each = 10)
+a <- (phi * sqrt(phi^2 + 1) + asinh(phi))
+plot(a/80 - 1.4, 0, ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "Ideal Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+plot(a/80 - 1.4, rep(0, 100), ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "Ideal Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+plot(a/70 - 2, rep(0, 100), ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "Ideal Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+plot(a/70 - 1.7, rep(0, 100), ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "Ideal Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+plot(a/60 - 2, rep(0, 100), ylim = c(-0.5,0.5), main = "1D Ideal", xlab = "Ideal Comp", ylab = "Just Random noise", pch = 21, bg = rev(cols), cex = 1.5, col = "black")
+x <- c(0, 0, 1)
+y <- c(1, 0, 0)
+plot(x, y, type = "b", pch = 19)
+plot(c(0, 0, 1), c(1, 0, 0), type = "b", pch = 20)
+plot(c(0, 0, 1), c(1, 0, 0), type = "b", pch = 16)
+par(mar = c(1, 1, 1, 1))
+plot(c(0, 0, 1), c(1, 0, 0), type = "b", pch = 16)
+par(mar = c(0, 0, 0, 0))
+plot(c(0, 0, 1), c(1, 0, 0), type = "b", pch = 16)
+plot(c(0, 0, 1), c(1, 0, 0), type = "b", pch = 14)
+plot(c(0, 0, 1), c(1, 0, 0), type = "b", pch = 15)
+plot(c(0, 0, 1), c(1, 0, 0), type = "b", pch = 15, cex = 3)
+points(c(1, 0), c(0, 1), type = "l", lty = 2)
+points(c(1, 0), c(0, 1), type = "l", lty = 3, lwd = 2)
+plot(c(0, 0, 1), c(1, 0, 0), type = "b", pch = 15, cex = 3)
+points(c(1, 0), c(0, 1), type = "l", lty = 3, lwd = 2)
+?text
+text(0.5, 0.1, labels = "Local")
+text(0.5, 0.05, labels = "Local")
+text(0.1, 0.5, labels = "Local", srt = 90)
+text(0.05, 0.5, labels = "Local", srt = 270)
+text(0.55, 0.55, labels = "Long dist.", srt = 225)
+text(0.55, 0.55, labels = "Long dist.", srt = 135)
+text(0.55, 0.55, labels = "Long dist.", srt = 45)
+360-45
+text(0.55, 0.55, labels = "Long dist.", srt = 315)
+par(mar = c(0, 0, 0, 0))
+plot(c(0, 0, 1), c(1, 0, 0), type = "b", pch = 15, cex = 3)
+points(c(1, 0), c(0, 1), type = "l", lty = 3, lwd = 2)
+text(0.5, 0.05, labels = "Local dist.")
+text(0.05, 0.5, labels = "Local dist.", srt = 270)
+text(0.55, 0.55, labels = "Long dist.", srt = 315)
+plot(c(0, 0, 1), c(1, 0, 0), type = "b", pch = 20, cex = 2)
+?knitr::include_graphics
+install.packages("blogdown")
+install.packages("blogdown")
+blogdown::hugo_version()
+blogdown::install_hugo()
+blogdown::hugo_version()
+?knitr::include_graphics
+setwd("D:/Webprojects/my_website")
+blogdown::hugo_version()
+blogdown::serve_site()
+blogdown::hugo_version()
+blogdown::new_site(theme = "gcushen/hugo-academic",
+sample = TRUE,
+theme_example = TRUE,
+empty_dirs = TRUE,
+to_yaml = TRUE)
+blogdown::new_site(theme = "gcushen/hugo-academic",
+sample = TRUE,
+theme_example = TRUE,
+empty_dirs = TRUE,
+to_yaml = TRUE)
