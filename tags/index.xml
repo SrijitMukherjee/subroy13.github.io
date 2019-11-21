@@ -5,7 +5,7 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Wed, 21 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Tags</title>
@@ -13,10 +13,82 @@
     </image>
     
     <item>
-      <title>Source Themes</title>
-      <link>/tags/source-themes/</link>
+      <title>Auction theory</title>
+      <link>/tags/auction-theory/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/auction-theory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clustering</title>
+      <link>/tags/clustering/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/clustering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gaussian Mixture Model</title>
+      <link>/tags/gaussian-mixture-model/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/gaussian-mixture-model/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mixture of Regression</title>
+      <link>/tags/mixture-of-regression/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/mixture-of-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Price Modelling</title>
+      <link>/tags/price-modelling/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/price-modelling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sound processing</title>
+      <link>/tags/sound-processing/</link>
       <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>/tags/source-themes/</guid>
+      <guid>/tags/sound-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Subset matching</title>
+      <link>/tags/subset-matching/</link>
+      <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/subset-matching/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Finance</title>
+      <link>/tags/finance/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/finance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stock market analysis</title>
+      <link>/tags/stock-market-analysis/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/stock-market-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Time series</title>
+      <link>/tags/time-series/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/time-series/</guid>
       <description></description>
     </item>
     

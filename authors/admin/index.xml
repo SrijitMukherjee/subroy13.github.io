@@ -5,7 +5,7 @@
     <link>/authors/admin/</link>
       <atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
     <description>Subhrajyoty Roy</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Wed, 21 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Subhrajyoty Roy</title>
@@ -13,10 +13,47 @@
     </image>
     
     <item>
+      <title>Feasibility of Transparent Price Discovery in Tea through Auction in India</title>
+      <link>/publication/tea-auction-feasibility/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/publication/tea-auction-feasibility/</guid>
+      <description>&lt;!-- 
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+Supplementary notes can be added here, including [code and math](https://sourcethemes.com/academic/docs/writing-markdown-latex/).
+
+--&gt;
+
+&lt;p&gt;Tea Auctions across India occur as an ascending open auction, conducted online. Before the auction, a sample of the tea lot  is sent to potential bidders, and a group of tea-testers. The seller’s reserve price is a confidential function of the tea-tester’s valuation, which also acts as a signal to the bidders. In this paper, we work with the dataset from a single tea auction house, J Thomas, of tea dust category, on 49 weeks in the time span of 2018-2019, with the following objectives in mind:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Objective classification of the various categories of tea dust into a more manageable, and robust classification of the tea dust, based on source and grades.&lt;/li&gt;
+&lt;li&gt;Predict which tea lots would be sold in the auction market, and a model for the final price conditioned on sale.&lt;/li&gt;
+&lt;li&gt;To study the distribution of price and ratio of the sold tea auction lots and Discussion on the possibility of automation of the process without human intervention.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;More details about the paper is available &lt;a href=&#34;https://www.mcxindia.com/education-training/publications/commodity-insights-yearbook&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Onset detection - A new approach to QBH system</title>
-      <link>/publication/preprint/</link>
+      <link>/publication/onset-detection-arxiv/</link>
       <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>/publication/preprint/</guid>
+      <guid>/publication/onset-detection-arxiv/</guid>
       <description>&lt;!--
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
@@ -98,15 +135,18 @@ date: 2019-09-01
     </item>
     
     <item>
-      <title>An example journal article</title>
-      <link>/publication/journal-article/</link>
-      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>/publication/journal-article/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+      <title>Analysing Impact of US – China Trade War on Large Tech Stocks</title>
+      <link>/publication/us-china-trade-war/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>/publication/us-china-trade-war/</guid>
+      <description>&lt;!--
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
   &lt;/div&gt;
 &lt;/div&gt;
+
 
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
@@ -114,28 +154,12 @@ date: 2019-09-01
   &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;code and math&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>An example conference paper</title>
-      <link>/publication/conference-paper/</link>
-      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>/publication/conference-paper/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-  &lt;/div&gt;
-&lt;/div&gt;
 
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
-  &lt;/div&gt;
-&lt;/div&gt;
+Supplementary notes can be added here, including [code and math](https://sourcethemes.com/academic/docs/writing-markdown-latex/).
 
-&lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;code and math&lt;/a&gt;.&lt;/p&gt;
+--&gt;
+
+&lt;p&gt;More details about the paper is available &lt;a href=&#34;http://www.jetir.org/view?paper=JETIR1901915&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

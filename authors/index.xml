@@ -5,7 +5,7 @@
     <link>/authors/</link>
       <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Wed, 21 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Authors</title>
@@ -15,10 +15,26 @@
     <item>
       <title></title>
       <link>/authors/admin/</link>
-      <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       <guid>/authors/admin/</guid>
       <description>&lt;p&gt;I am a student of Masters of Statistics (M.Stat.) in Indian Statistical Institute, Kolkata. My research interest includes Applied Statistics in various economical, financial and computational fields.&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Abhinandan Dalal</title>
+      <link>/authors/abhinandan-dalal/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/abhinandan-dalal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dr. Diganta Mukherjee</title>
+      <link>/authors/dr.-diganta-mukherjee/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/dr.-diganta-mukherjee/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -38,10 +54,10 @@
     </item>
     
     <item>
-      <title>Robert Ford</title>
-      <link>/authors/robert-ford/</link>
-      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>/authors/robert-ford/</guid>
+      <title>Pramit Das</title>
+      <link>/authors/pramit-das/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/pramit-das/</guid>
       <description></description>
     </item>
     
