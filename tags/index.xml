@@ -53,6 +53,14 @@
     </item>
     
     <item>
+      <title>regression</title>
+      <link>/tags/regression/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Sound processing</title>
       <link>/tags/sound-processing/</link>
       <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
@@ -121,14 +129,6 @@
       <link>/tags/r-markdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       <guid>/tags/r-markdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>regression</title>
-      <link>/tags/regression/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      <guid>/tags/regression/</guid>
       <description></description>
     </item>
     

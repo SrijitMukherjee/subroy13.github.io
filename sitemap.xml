@@ -48,6 +48,11 @@
   </url>
   
   <url>
+    <loc>/project/mount-rainier/</loc>
+    <lastmod>2019-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/auction-theory/</loc>
     <lastmod>2019-11-01T00:00:00+00:00</lastmod>
   </url>
@@ -88,12 +93,22 @@
   </url>
   
   <url>
+    <loc>/project/</loc>
+    <lastmod>2019-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/publication_types/</loc>
     <lastmod>2019-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/publication/</loc>
+    <lastmod>2019-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/regression/</loc>
     <lastmod>2019-11-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -193,11 +208,6 @@
   </url>
   
   <url>
-    <loc>/project/</loc>
-    <lastmod>2018-11-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/text-analysis/</loc>
     <lastmod>2018-11-13T00:00:00+00:00</lastmod>
   </url>
@@ -234,11 +244,6 @@
   
   <url>
     <loc>/tags/r-markdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/regression/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
