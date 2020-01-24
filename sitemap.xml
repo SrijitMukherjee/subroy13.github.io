@@ -43,6 +43,31 @@
   </url>
   
   <url>
+    <loc>/project/seq2seq-chatbot/</loc>
+    <lastmod>2020-01-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/deep-learning/</loc>
+    <lastmod>2020-01-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/project/</loc>
+    <lastmod>2020-01-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-01-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/text-analysis/</loc>
+    <lastmod>2020-01-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/post2/</loc>
     <lastmod>2019-12-24T00:00:00+00:00</lastmod>
   </url>
@@ -113,11 +138,6 @@
   </url>
   
   <url>
-    <loc>/project/</loc>
-    <lastmod>2019-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/publication_types/</loc>
     <lastmod>2019-11-01T00:00:00+00:00</lastmod>
   </url>
@@ -129,11 +149,6 @@
   
   <url>
     <loc>/tags/regression/</loc>
-    <lastmod>2019-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2019-11-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -203,17 +218,12 @@
   </url>
   
   <url>
-    <loc>/project/text-prediction-app/</loc>
+    <loc>/project/text-pred-app/</loc>
     <lastmod>2018-11-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/machine-learning/</loc>
-    <lastmod>2018-11-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/text-analysis/</loc>
     <lastmod>2018-11-13T00:00:00+00:00</lastmod>
   </url>
   

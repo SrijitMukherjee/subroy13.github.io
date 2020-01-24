@@ -5,7 +5,7 @@
     <link>/project/</link>
       <atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Fri, 10 Jan 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Projects</title>
@@ -13,7 +13,15 @@
     </image>
     
     <item>
-      <title>Analysis of Mount Rainier Climbing Data (Kaggle)</title>
+      <title>Chatbot with Seq2Seq model</title>
+      <link>/project/seq2seq-chatbot/</link>
+      <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/project/seq2seq-chatbot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Analysis of Mount Rainier Climbing Data</title>
       <link>/project/mount-rainier/</link>
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       <guid>/project/mount-rainier/</guid>
@@ -375,9 +383,9 @@ op$value
     
     <item>
       <title>A simple Text Prediction Application</title>
-      <link>/project/text-prediction-app/</link>
+      <link>/project/text-pred-app/</link>
       <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>/project/text-prediction-app/</guid>
+      <guid>/project/text-pred-app/</guid>
       <description>
 
 &lt;style&gt;

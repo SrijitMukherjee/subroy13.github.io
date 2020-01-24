@@ -1118,6 +1118,14 @@ plt.show()
     </item>
     
     <item>
+      <title>Chatbot with Seq2Seq model</title>
+      <link>/project/seq2seq-chatbot/</link>
+      <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/project/seq2seq-chatbot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Introduction to Integral Calculus for 10&#43;2 Level</title>
       <link>/post/post2/</link>
       <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
@@ -1139,7 +1147,7 @@ plt.show()
     </item>
     
     <item>
-      <title>Analysis of Mount Rainier Climbing Data (Kaggle)</title>
+      <title>Analysis of Mount Rainier Climbing Data</title>
       <link>/project/mount-rainier/</link>
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       <guid>/project/mount-rainier/</guid>
@@ -1766,9 +1774,9 @@ Supplementary notes can be added here, including [code and math](https://sourcet
     
     <item>
       <title>A simple Text Prediction Application</title>
-      <link>/project/text-prediction-app/</link>
+      <link>/project/text-pred-app/</link>
       <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>/project/text-prediction-app/</guid>
+      <guid>/project/text-pred-app/</guid>
       <description>
 
 &lt;style&gt;
