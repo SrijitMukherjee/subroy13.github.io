@@ -247,16 +247,6 @@
       <guid>/post/post3/</guid>
       <description>
 
-&lt;style&gt;
-.article-container {
-   max-width: 1100px;
-}
-
-p {
-  text-align: justify;
-}
-&lt;/style&gt;
-
 &lt;p&gt;This is a rather long post, but here we shall about something really interesting, about how to mix the content of a picture with the style from another picture, called Neural Style Transfer. &lt;strong&gt;Texture Networks&lt;/strong&gt; is a Neural Network approach devised by Dmitry Ulyanov, Vadim Lebedev, Andrea Vedaldi and Victor Lempitsky in 2016, which is extremely useful to synthesize new types of textures (which is extensively used in production of clothings with exclusive designs), as well as being able to work as a style transfer mechanism.&lt;/p&gt;
 
 &lt;h2 id=&#34;what-is-neural-style-transfer&#34;&gt;What is Neural Style Transfer?&lt;/h2&gt;
@@ -1314,10 +1304,11 @@ plt.show()
 
 &lt;h1 id=&#34;dataset&#34;&gt;Dataset&lt;/h1&gt;
 
-&lt;p&gt;The dataset was obtained from &lt;a href=&#34;https://www.kaggle.com/codersree/mount-rainier-weather-and-climbing-data&#34; target=&#34;_blank&#34;&gt;Kaggle&lt;/a&gt;.
-* Timeperiod of the dataset is 25th September, 2014 to 27th November, 2017.&lt;/p&gt;
+&lt;p&gt;The dataset was obtained from &lt;a href=&#34;https://www.kaggle.com/codersree/mount-rainier-weather-and-climbing-data&#34; target=&#34;_blank&#34;&gt;Kaggle&lt;/a&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Timeperiod of the dataset is 25th September, 2014 to 27th November, 2017.&lt;/p&gt;&lt;/li&gt;
+
 &lt;li&gt;&lt;p&gt;There are three main routes for climbing Mt. Rainier.&lt;/p&gt;
 
 &lt;ul&gt;

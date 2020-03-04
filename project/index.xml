@@ -53,10 +53,11 @@
 
 &lt;h1 id=&#34;dataset&#34;&gt;Dataset&lt;/h1&gt;
 
-&lt;p&gt;The dataset was obtained from &lt;a href=&#34;https://www.kaggle.com/codersree/mount-rainier-weather-and-climbing-data&#34; target=&#34;_blank&#34;&gt;Kaggle&lt;/a&gt;.
-* Timeperiod of the dataset is 25th September, 2014 to 27th November, 2017.&lt;/p&gt;
+&lt;p&gt;The dataset was obtained from &lt;a href=&#34;https://www.kaggle.com/codersree/mount-rainier-weather-and-climbing-data&#34; target=&#34;_blank&#34;&gt;Kaggle&lt;/a&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Timeperiod of the dataset is 25th September, 2014 to 27th November, 2017.&lt;/p&gt;&lt;/li&gt;
+
 &lt;li&gt;&lt;p&gt;There are three main routes for climbing Mt. Rainier.&lt;/p&gt;
 
 &lt;ul&gt;
