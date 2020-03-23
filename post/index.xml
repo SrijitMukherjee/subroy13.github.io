@@ -5,12 +5,679 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Fri, 31 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Mon, 23 Mar 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Posts</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>An Introduction to Image Segmentation Techniques</title>
+      <link>/post/post5/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/post/post5/</guid>
+      <description>
+
+&lt;h2 id=&#34;a-lot-of-long-distance-good-luck&#34;&gt;A lot of long distance Good Luck&lt;/h2&gt;
+
+&lt;p&gt;Currently, as I am writing this, it is a global pandemic situation all over the world, with a newly infectious disease caused by a newly discovered coronavirus, called COVID-19. According to the website to &lt;a href=&#34;https://www.who.int/health-topics/coronavirus&#34; target=&#34;_blank&#34;&gt;WHO (World Health Organization)&lt;/a&gt;, most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.&lt;/p&gt;
+
+&lt;p&gt;There are about 13 thousands people we have lost to the adverse effect of the disease, and more than three hundred thousands persons currently fighting against this disease, which rapidly grew out of China just within last three to four months. People are currently comparing it to the &lt;a href=&#34;https://en.wikipedia.org/wiki/Spanish_flu&#34; target=&#34;_blank&#34;&gt;Spanish flu&lt;/a&gt;, which took place roughly $100$ years before, and hence, almost none of us have any experience of dealing with a pandemic at such a large scale. As a countermeasure to reduce the spread of infectious disease, my hometown is at a Shelter-in-place lockdown, and hence I have almost nothing to do except scrapping through the internet to learn some new things that interests me.&lt;/p&gt;
+
+&lt;p&gt;However, I sincerely wish you all to stay unite, and stay safe. We would get through the hard times.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WHO Guidelines to STAY SAFE:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The best way to prevent and slow down transmission is be well informed about the COVID-19 virus, the disease it causes and how it spreads.&lt;/li&gt;
+&lt;li&gt;Wash your hands frequently with an alcohol based rub or soap.&lt;/li&gt;
+&lt;li&gt;Maintain social distancing.&lt;/li&gt;
+&lt;li&gt;Avoid touching eyes, nose and mouth.&lt;/li&gt;
+&lt;li&gt;Practice respiratory hygiene.&lt;/li&gt;
+&lt;li&gt;If you have fever, cough and difficulty breathing, seek medical care early.&lt;/li&gt;
+&lt;li&gt;Stay informed and follow advice given by your healthcare provider.&lt;/li&gt;
+&lt;li&gt;Protect yourselves and protect others.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Now, as you have quite guessed from the title of the post, this is about segmenting an image about different regions. Image Segmentation refers to the task that is used to seperate foreground from the background of an image. Before understanding what it means, note that, an image can be described as a collection of geometric shapes (lines, curves, polygons etc.) having various aesthestics mapping to real life (or fictional) quantities or objects. I find it essentially similar to that of &lt;code&gt;ggplot&lt;/code&gt; plotting technique, we have a dataset comprising of some measurements or objects which we want to measure, and we can build a plot (read an image) out of it, by creating an aesthestic mapping of those measurements to geometric objects such as points, lines, curves, polygons etc. The book written by Leland Wilkinson named &lt;a href=&#34;https://books.google.co.in/books/about/The_Grammar_of_Graphics.html?id=ZiwLCAAAQBAJ&amp;amp;source=kp_book_description&amp;amp;redir_esc=y&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;The Grammar of Graphics&lt;/strong&gt;&lt;/a&gt; is one such book which describes the process in great detail.&lt;/p&gt;
+
+&lt;p&gt;Let me start with an example. Let&amp;rsquo;s say you have an image of a red chair, with a white wall at the back. Now, when you look at the image, you are seeing possibly some polygons (which may have some curved edges), which defines different regions of a chair, each having a slightly different shade of colour, due to disparate reflective nature and absorption of photons when there is a lighting source used to illuminate the scene. Now, in simple terms, there is a latent dataset with rich measurements of different characteristics of the objects in the scene (namely the chair and the wall), namely containing the spatial and lighting informations, however we do not get to observe that.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;x coordinate&lt;/th&gt;
+&lt;th&gt;y coordinate&lt;/th&gt;
+&lt;th&gt;z coordinate&lt;/th&gt;
+&lt;th&gt;colour(rgb)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2.2123&lt;/td&gt;
+&lt;td&gt;23.443&lt;/td&gt;
+&lt;td&gt;0. 1768&lt;/td&gt;
+&lt;td&gt;(240, 75, 90)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Now, an image can also be described as a mapping of the above rows to a rows like this (which is observable by means of the image at hand),&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;x coordinate&lt;/th&gt;
+&lt;th&gt;y coordinate&lt;/th&gt;
+&lt;th&gt;colour(rgb)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;23&lt;/td&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;td&gt;(240, 75, 90)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;where the new x and y coordinates are coordinates in the 2-dimensional map described by the plane of the image. Now, to each of the rows of the latent dataset, we associated an object (because that is how we interprete it), for instance, the rows which consitute the 3-dimensional spatial coordinates of the location of atoms of the chiar, are associated with the chair, and the rest, maybe associated with the floor and the white wall. Image segmentation specifically refers to generating that interpretation in a systematic and automatic way, just by looking at the visual sensory information (i.e. the 2nd type of dataset), and the problem is difficult, as the mapping by which the latent dataset converted to this, is extremely complicated in nature (maybe unknown). Therefore, a perfect image segmentation achieves the hidden representation of an image into something that is more meaningful and easier to analyze.&lt;/p&gt;
+
+&lt;h2 id=&#34;importing-necessary-python-packages&#34;&gt;Importing Necessary Python Packages&lt;/h2&gt;
+
+&lt;p&gt;For this, we shall be using &lt;code&gt;numpy&lt;/code&gt; for vector and matrix manipulations, &lt;code&gt;cv2&lt;/code&gt;to read image files as a numpy array, and finally &lt;code&gt;matplotlib&lt;/code&gt; for various plotting related tasks. I am using python 3.7.4 for this.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: If you want to know an image can be represented in an array (or a tensor), go check out the section on &amp;ldquo;Making some utlity functions&amp;rdquo; on my other post on &lt;a href=&#34;https://subroy13.github.io/post/post3/&#34; target=&#34;_blank&#34;&gt;Texture Networks&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+import sys
+sys.version
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;&#39;3.7.4 (default, Aug  9 2019, 18:34:13) [MSC v.1915 64 bit (AMD64)]&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I shall be using the beautiful picture of &lt;a href=&#34;https://en.wikipedia.org/wiki/Mona_Lisa&#34; target=&#34;_blank&#34;&gt;Mona Lisa&lt;/a&gt; by Leaonardo Da Vinci. I am not a connoisseur about aesthestics, but I appreciate the image from the point of view that it has a subject, and a background, two very clearly seperated item in the image.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;bw_img = cv2.imread(&#39;./Mona_Lisa.jpg&#39;)  # read a black and white version
+col_img = cv2.imread(&#39;./Mona_Lisa_color.jpg&#39;)   # and a color version
+
+# since, cv2 reads in BGR format, we need to use RGB format for plotting
+col_img = cv2.cvtColor(col_img, cv2.COLOR_BGR2RGB)
+
+fig, plots = plt.subplots(1,2, figsize = (15, 10))     # subplot with 1 row, 2 columns
+
+# subplot 1
+plots[0].imshow(bw_img, cmap=&#39;gray&#39;)
+plots[0].set_title(&#39;Black &amp;amp; White&#39;)
+
+# subplot 2
+plots[1].imshow(col_img)
+plots[1].set_title(&#39;Colored&#39;)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./Image%20Segmentation%20Techniques_5_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;histogram-thresholding&#34;&gt;Histogram Thresholding&lt;/h2&gt;
+
+&lt;p&gt;Histogram thresholding is the most basic way of segmenting an image. It is fast, simple yet very effective. For instance, assume we have a grayscale image, where the foreground and background has different grayscale intensities. Let us say, we have the grayscale intensity $i$ ($0 \leq i \leq 255$), appearing $f_i$ times in the image (i.e. there are $f_i$ pixels with grayscale intensity level $i$), and $N$ is the total number of digital pixels in the image. Now, assume that, the background object has a mean intensity level $\mu_b$, and foreground has mean intensity level $\mu_f$. Then, we assume,&lt;/p&gt;
+
+&lt;p&gt;$$
+I_{x, y} \sim
+\begin{cases}
+g(i_{x, y}; \mu_f) &amp;amp; \text{if (x, y) pixel belongs to foreground} \\&lt;br /&gt;
+g(i_{x, y}; \mu_b) &amp;amp; \text{if (x, y) pixel belongs to background} \\&lt;br /&gt;
+\end{cases}
+$$&lt;/p&gt;
+
+&lt;p&gt;where $I_{x, y}$ is the intensity level at (x, y)-th pixel of the image, which is a random variable (and is taking value $i_{x, y}$) and follows a density $g(\cdot)$ whose location is specified by $\mu_f$ or $\mu_b$, based on whether the pixel corresponds to background object (the white wall) or the foreground object (the red chair).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;plt.hist(bw_img.ravel(), bins = 255)
+plt.title(&#39;Histogram of grayscale values of Mona Lisa Image&#39;)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./Image%20Segmentation%20Techniques_7_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see, there are 3 clear regions in the histogram, which might indicates, there are 3 such segments possible, since it looks like the histogram comprises of mixture of 3 random variables.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;First component has a mean about at 5.&lt;/li&gt;
+&lt;li&gt;Second component shows a mode (or peak) about at 45.&lt;/li&gt;
+&lt;li&gt;Third component shows a mode at 130.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;So, we consider some thresholds, at 25 and 95. Now, we shall simply use these thresholds, and assign different values to all pixel intensities that are smaller than 25 to one value, all in between 25 and 95 to another value, and all pixels higher than 95 to another value. This should give us some possible segmentation, although not automatic, but is useful to gain insights and idea about the method.&lt;/p&gt;
+
+&lt;p&gt;The following function performs the segmentation given the values of the thresholds.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def segment(img, thresholds):
+    bins = [0]    # these are used to binning the image
+    for i in range(len(thresholds)):
+        bins.append( thresholds[i] )
+    bins.append(256)
+    
+    img = np.array(img)
+    bins = np.array(bins)
+    segment_bin = np.digitize(img, bins)
+    return(bins[segment_bin] )    # return the segmented image&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we apply the threshold 25, 95 and both to see which regions are being identified as foreground and backgrund for which thresholds.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;thres1 = [25]
+thres2 = [95]
+thres3 = [25, 95]
+
+fig, plots = plt.subplots(1,3, figsize = (15, 10))     # subplot with 1 row, 3 columns
+
+# subplot 1
+plots[0].imshow(segment(bw_img, thres1), cmap=&#39;gray&#39;)
+plots[0].set_title(&#39;Segment with threshold = 25&#39;)
+
+# subplot 2
+plots[1].imshow(segment(bw_img, thres2), cmap=&#39;gray&#39;)
+plots[1].set_title(&#39;Segment with threshold = 95&#39;)
+
+# subplot 3
+plots[2].imshow(segment(bw_img, thres3), cmap=&#39;gray&#39;)
+plots[2].set_title(&#39;Segment with threshold = 25 &amp;amp; 95&#39;)
+
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./Image%20Segmentation%20Techniques_11_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It seems that, the threshold at 25 separates the clothings and darker shades of skin of Mona Lisa from the background, while threshold at 95 tend to separate the lighter shades of skin (the face, the hands). Combining both yields a good understanding of the different segments available in the image.&lt;/p&gt;
+
+&lt;p&gt;Now, let us perform similar analysis on the coloured version of the image. In that case, we process each of the channel seperately through this procedure.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;fig, plots = plt.subplots(1,3, figsize = (15, 3))     # subplot with 1 row, 3 columns
+
+# subplot 1
+plots[0].hist(col_img[:,:,0].ravel(), bins = 255)
+plots[0].set_title(&#39;Histogram of R channel&#39;)
+
+# subplot 2
+plots[1].hist(col_img[:,:,1].ravel(), bins = 255)
+plots[1].set_title(&#39;Histogram of G channel&#39;)
+
+# subplot 3
+plots[2].hist(col_img[:,:,2].ravel(), bins = 255)
+plots[2].set_title(&#39;Histogram of B channel&#39;)
+
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./Image%20Segmentation%20Techniques_13_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, it seems a lot more difficult to separate background from foreground on the basis of thresholds just by subjectively judging them.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;thres_R = [50, 100]
+thres_G = [100]
+thres_B = [55]
+
+segment_R = np.expand_dims( segment(col_img[:, :, 0], thres_R) , 2)    # apply segmentation and convert to 3d array
+segment_G = np.expand_dims( segment(col_img[:, :, 1], thres_G) , 2)
+segment_B = np.expand_dims( segment(col_img[:, :, 2], thres_B) , 2)
+
+segment_img = np.concatenate( (segment_R, segment_G, segment_B), axis = 2)
+
+
+fig, plots = plt.subplots(1,4, figsize = (20, 5))     # subplot with 1 row, 4 columns
+
+# subplot 1
+plots[0].imshow(segment_R[:, :, 0], cmap = &#39;gray&#39;)
+plots[0].set_title(&#39;Segmentation of R channel&#39;)
+
+# subplot 2
+plots[1].imshow(segment_G[:, :, 0], cmap = &#39;gray&#39;)
+plots[1].set_title(&#39;Segmentation of G channel&#39;)
+
+# subplot 3
+plots[2].imshow(segment_B[:, :, 0], cmap = &#39;gray&#39;)
+plots[2].set_title(&#39;Segmentation of B channel&#39;)
+
+# final image
+plots[3].imshow(segment_img)
+plots[3].set_title(&#39;Final segmentation of image&#39;)
+
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./Image%20Segmentation%20Techniques_15_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Therefore, we see that most the segmentation generally comes from the G channel itself, but the final segmentation does not look very promising. As you can see, there are lots of artifacts and noises all around. Therefore, we need our workaround against this, which we shall be discussing shortly.&lt;/p&gt;
+
+&lt;h2 id=&#34;otsu-s-method&#34;&gt;Otsu&amp;rsquo;s Method&lt;/h2&gt;
+
+&lt;p&gt;Otsu&amp;rsquo;s method is a automatic way of detecting such thresholds. To better understand it, consider a threshold value $s$. Then, the best estimate of $\mu_f$ and $\mu_b$ are as follows:&lt;/p&gt;
+
+&lt;p&gt;$$
+\begin{align}
+\mu_b^{(s)} &amp;amp; = \dfrac{\sum_{i = 0}^{s} i f_i }{\sum_{i = 0}^{s} f_i}\\&lt;br /&gt;
+\mu_f^{(s)} &amp;amp; = \dfrac{\sum_{i = (s+1)}^{255} i f_i }{\sum_{i = (s+1)}^{255} f_i}\\&lt;br /&gt;
+\end{align}
+$$&lt;/p&gt;
+
+&lt;p&gt;where the superscript is used to denote the threshold $s$.&lt;/p&gt;
+
+&lt;p&gt;Assuming that, foreground has higher lower intensity level than the foreground (or object) due to the fact that object is properly illuminated, one way to choose the threshold that minimizes the weighted intraclass variance, or conversely maximize the weighted interclass variance. Now, the formula of weighted interclass variance is simply;&lt;/p&gt;
+
+&lt;p&gt;$$V = \dfrac{{\sum_{i = 0}^{s} f_i}}{N} \times \dfrac{{\sum_{i = 0}^{s} f_i}}{N} \times \left[ \mu_b^{(s)}  - \mu_f^{(s)}\right]^2$$&lt;/p&gt;
+
+&lt;p&gt;The following function computes this interclass variance for all threshold levels $s = 1, 2, \dots 254$.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def interclass_var(img):
+    var = np.zeros(256)
+    freq = np.zeros(256)
+    
+    # obtain f_i&#39;s
+    for i in range(img.shape[0]):
+        for j in range(img.shape[1]):
+            freq[img[i, j]] += 1     # increase corresponding intensity frequency
+            
+    for s in range(1, 255):
+        w1 = freq[0:s].sum()
+        w2 = freq[s:].sum()
+        if w1!=0 and w2!= 0:
+            mu1 = sum( np.arange(s) * freq[0:s] ) / w1
+            mu2 = sum( np.arange(s, 256) * freq[s:] ) / w2
+            var[s] = w1 * w2 * ((mu1 - mu2)**2)
+    
+    return var
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;var = interclass_var(bw_img)
+plt.plot(var)
+plt.title(&amp;quot;Otku&#39;s Interclass variation&amp;quot;)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./Image%20Segmentation%20Techniques_18_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;np.argmax(var)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;78
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It seems that 78 is the proper threshold where the interclass variance is maximized. So, let us take a look how the segmentation is for only one threshold equal to 78.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;thres = [78]
+
+fig, plots = plt.subplots(1,2, figsize = (10, 5))     # subplot with 1 row, 2 columns
+
+# subplot 1
+plots[0].imshow(bw_img, cmap=&#39;gray&#39;)
+plots[0].set_title(&#39;Original Image&#39;)
+
+# subplot 2
+plots[1].imshow(segment(bw_img, thres), cmap=&#39;gray&#39;)
+plots[1].set_title(&#39;Segment with threshold = 78&#39;)
+
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./Image%20Segmentation%20Techniques_21_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We see that, the segmentation looks pretty good for just two shades of gray. However, it would have been better if the background was given a different shade from &lt;a href=&#34;https://en.wikipedia.org/wiki/Lisa_del_Giocondo&#34; target=&#34;_blank&#34;&gt;Lisa del Giocondo&lt;/a&gt;, the possible model for Mona Lisa. However, since in the original picture, they both have similar shades of gray, we cannot do it just based on the histogram of colour intensities. So, we need to account for spatial information as well.&lt;/p&gt;
+
+&lt;p&gt;Let us see, how much this automatic thresholding give us in the colour image of Mona Lisa.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;var_r = interclass_var(col_img[:, :, 0])
+var_g = interclass_var(col_img[:, :, 1])
+var_b = interclass_var(col_img[:, :, 2])
+
+print(&#39;Threshold for R channel&#39;, np.argmax(var_r))
+print(&#39;Threshold for G channel&#39;, np.argmax(var_g))
+print(&#39;Threshold for B channel&#39;, np.argmax(var_b))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Threshold for R channel 94
+Threshold for G channel 82
+Threshold for B channel 61
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Exactly same code as before
+thres_R = [94]
+thres_G = [82]
+thres_B = [61]
+
+segment_R = np.expand_dims( segment(col_img[:, :, 0], thres_R) , 2)    # apply segmentation and convert to 3d array
+segment_G = np.expand_dims( segment(col_img[:, :, 1], thres_G) , 2)
+segment_B = np.expand_dims( segment(col_img[:, :, 2], thres_B) , 2)
+
+segment_img = np.concatenate( (segment_R, segment_G, segment_B), axis = 2)
+
+fig, plots = plt.subplots(1,4, figsize = (20, 5))     # subplot with 1 row, 4 columns
+
+# subplot 1
+plots[0].imshow(segment_R[:, :, 0], cmap = &#39;gray&#39;)
+plots[0].set_title(&#39;Segmentation of R channel&#39;)
+
+# subplot 2
+plots[1].imshow(segment_G[:, :, 0], cmap = &#39;gray&#39;)
+plots[1].set_title(&#39;Segmentation of G channel&#39;)
+
+# subplot 3
+plots[2].imshow(segment_B[:, :, 0], cmap = &#39;gray&#39;)
+plots[2].set_title(&#39;Segmentation of B channel&#39;)
+
+# final image
+plots[3].imshow(segment_img)
+plots[3].set_title(&#39;Final segmentation of image&#39;)
+
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./Image%20Segmentation%20Techniques_24_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The final segmentation clearly segments all the regions, like background and the model. However, it is extremely noisy. So, otsu&amp;rsquo;s automatic thresholding does not perform any better for colour images.&lt;/p&gt;
+
+&lt;h2 id=&#34;incorporating-spatial-information-co-occurence-matrix&#34;&gt;Incorporating Spatial Information: Co-occurence Matrix&lt;/h2&gt;
+
+&lt;p&gt;To incorporate spatial information, as well as consider the intensity values of the image, there is a popular notion of Co-occurence matrix. As the name suggests, it captures how many times two intensity levels $i$ and $j$ appear spatially together in the image, and put that frequency in $(i, j)$-th cell of the matrix.&lt;/p&gt;
+
+&lt;p&gt;For example, the $(a, b)$-th entry of the co-occurence matrix is the frequency of the number of times, when $a$ appears at a pixel location of the image, and the color $b$ appears at the specified offset from that pixel locations. Now, if the offset is set to be $(1, 0)$, then it means the number of times the pixel intensities $(a, b)$ appear side by side horizontally in this order is given by the $(a, b)$-th element of the co-occurence matrix.&lt;/p&gt;
+
+&lt;p&gt;So, let us create a function which computes the co-occurence matrix for us.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Create co-occurence matrix
+def CCM(img, offset):
+    comat = np.zeros((256, 256))
+    for i in range(img.shape[0] - offset[0]):
+        for j in range(img.shape[1] - offset[1]):
+            comat[img[i, j], img[i + offset[0], j + offset[1]] ] += 1
+    return(comat)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now that we have our co-occurence matrix, consider a specified threshold $s$. Then, the $256\times 256$ order co-occurence matrix can be partitioned into $4$ parts as follows;&lt;/p&gt;
+
+&lt;p&gt;$$
+\begin{bmatrix}
+A &amp;amp; B\\&lt;br /&gt;
+C &amp;amp; D
+\end{bmatrix}
+$$&lt;/p&gt;
+
+&lt;p&gt;where $A$ is of order $s \times s$. Let, $a, b, c, d$ denotes the sum of the entries in partioned regions $A, B, C, D$ respectively. Clearly, if the threshold is selected as such so that background and foreground can be broken up nicely, then it means, the entries of $B$ and $C$ are going to be small. Since, they represent the number of times a background color changes to foreground color and vice-versa. Armed with this knowledge, two very simple measures we can propose.&lt;/p&gt;
+
+&lt;p&gt;$$m_1 = \dfrac{b+c}{a + b + c + d}$$&lt;/p&gt;
+
+&lt;p&gt;and another based on conditional probability;&lt;/p&gt;
+
+&lt;p&gt;$$m_2 = \dfrac{1}{2} \left( \dfrac{b}{a+b} + \dfrac{c}{c+d} \right)$$&lt;/p&gt;
+
+&lt;p&gt;Minimizing these disparity measures with respect to the choice of $s$, should give us a reasonably good segmentation.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def discre_measure(comat, s):
+    a = comat[0:s, 0:s].sum()
+    b = comat[0:s, s:].sum()
+    c = comat[s:, 0:s].sum()
+    d = comat[s:, s:].sum()
+    
+    m1 = (b + c)/(a + b + c + d)
+    m2 = ((b / (a + b)) + (c / (c + d)) )/2
+    
+    return((m1, m2))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;T_h = CCM(bw_img, offset = (0, 1))   # consider horizontal offset
+T_v = CCM(bw_img, offset = (1, 0))   # consider vertical offset
+T_hv = T_h + T_v   # sum to obtain a good spatially informed co-occurence like matrix
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we compute these measures for all thresholds from $0$ to $255$, and then plot their graphs in order to find the minimum of the objective function (or the measure)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;scores_m1 = []
+scores_m2 = []
+
+for s in range(1, 255):
+    score = discre_measure(T_hv, s)
+    scores_m1.append( score[0] )
+    scores_m2.append( score[1] )
+    
+fig, plots = plt.subplots(1,2, figsize = (20, 5))     # subplot with 1 row, 2 columns
+
+# subplot 1
+plots[0].plot(scores_m1)
+plots[0].set_title(&#39;Measure 1&#39;)
+
+# subplot 2
+plots[1].plot(scores_m2)
+plots[1].set_title(&#39;Measure 2&#39;)
+plots[1].set_ylim([0, 0.1])
+
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./Image%20Segmentation%20Techniques_31_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, there are several local minimas. Note that, using a global rule for obtaining the minimum value would possibly lead to a poor segmentation. Hence, we apply a moving window through the array of these scores, to find a value which is minimum in a window span of length $2K$, where $K$ is a choice by the user. Clearly, higher values of $K$ will lead to smaller number of segments, and lower values of $K$ will give higher number of segments. This moving minimum algorithm is implemented in the following piece of code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def find_min(scores, k = 1):
+    thresholds = []
+    for i in range(k, len(scores) - k):
+        if min(scores[(i-k):(i+k)]) == scores[i]:
+            thresholds.append(i)
+    return(thresholds)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, we consider the images segmentation for $k = 1, 3, 5, 10, 20$, firstly for Measure 1 and then for Measure 2.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;fig, plots = plt.subplots(1,5, figsize = (20, 5))     # subplot with 1 row, 5 columns
+
+# subplot 1
+plots[0].imshow( segment(bw_img, find_min(scores_m1, k = 1)) , cmap = &#39;gray&#39;)
+plots[0].set_title(&#39;k = 1 ( Measure 1 )&#39;)
+
+# subplot 2
+plots[1].imshow( segment(bw_img, find_min(scores_m1, k = 3)) , cmap = &#39;gray&#39;)
+plots[1].set_title(&#39;k = 3 ( Measure 1 )&#39;)
+
+# subplot 3
+plots[2].imshow( segment(bw_img, find_min(scores_m1, k = 5)) , cmap = &#39;gray&#39;)
+plots[2].set_title(&#39;k = 5 ( Measure 1 )&#39;)
+
+# subplot 4
+plots[3].imshow( segment(bw_img, find_min(scores_m1, k = 10)) , cmap = &#39;gray&#39;)
+plots[3].set_title(&#39;k = 10 ( Measure 1 )&#39;)
+
+# subplot 4
+plots[4].imshow( segment(bw_img, find_min(scores_m1, k = 20)) , cmap = &#39;gray&#39;)
+plots[4].set_title(&#39;k = 20 ( Measure 1 )&#39;)
+
+
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./Image%20Segmentation%20Techniques_35_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;fig, plots = plt.subplots(1,5, figsize = (20, 5))     # subplot with 1 row, 5 columns
+
+# subplot 1
+plots[0].imshow( segment(bw_img, find_min(scores_m2, k = 1)) , cmap = &#39;gray&#39;)
+plots[0].set_title(&#39;k = 1 ( Measure 2 )&#39;)
+
+# subplot 2
+plots[1].imshow( segment(bw_img, find_min(scores_m2, k = 3)) , cmap = &#39;gray&#39;)
+plots[1].set_title(&#39;k = 3 ( Measure 2 )&#39;)
+
+# subplot 3
+plots[2].imshow( segment(bw_img, find_min(scores_m2, k = 5)) , cmap = &#39;gray&#39;)
+plots[2].set_title(&#39;k = 5 ( Measure 2 )&#39;)
+
+# subplot 4
+plots[3].imshow( segment(bw_img, find_min(scores_m2, k = 10)) , cmap = &#39;gray&#39;)
+plots[3].set_title(&#39;k = 10 ( Measure 2 )&#39;)
+
+# subplot 4
+plots[4].imshow( segment(bw_img, find_min(scores_m2, k = 20)) , cmap = &#39;gray&#39;)
+plots[4].set_title(&#39;k = 20 ( Measure 2 )&#39;)
+
+
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./Image%20Segmentation%20Techniques_36_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It looks like for $k = 10$, with measure 1 and for $k = 20$ with meausre 2, we have similar kind of segmentation of the image. However, with measure 2, $k = 20$, the segmentation looks much clearer and ideal, as there are light noises to the background, and almost no noises in definiting the edge of the clothings of the model from the background.&lt;/p&gt;
+
+&lt;p&gt;Now, let us inspect how does the thresholds found by this algorithm maps to the co-occurence matrix.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;cutoffs1 = np.array(find_min(scores_m1, k = 10))
+cutoffs2 = np.array(find_min(scores_m2, k = 20))
+
+fig, plots = plt.subplots(1, 2, figsize = (20, 5))     # subplot with 1 row, 2 columns
+
+# subplot 1
+a = plots[0].imshow(np.log(T_hv))   # take logarithm for ease of visualization
+fig.colorbar(a, ax = plots[0])
+for cut in cutoffs1:
+    plots[0].plot( [cut, cut], [255, 0] , &amp;quot;r-&amp;quot;)
+    plots[0].plot( [255, 0], [cut, cut], &amp;quot;r-&amp;quot;)
+
+# subplot 2
+b = plots[1].imshow(np.log(T_hv))   # take logarithm for ease of visualization
+fig.colorbar(b, ax = plots[1])
+for cut in cutoffs2:
+    plots[1].plot( [cut, cut], [255, 0] , &amp;quot;r-&amp;quot;)
+    plots[1].plot( [255, 0], [cut, cut], &amp;quot;r-&amp;quot;)
+
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./Image%20Segmentation%20Techniques_38_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see, there are lots of unnecessary thresholds selected for measure1. However, then two principal thresholds selected by these methods are at about $25$ and at about $95$, which were the thresholds we picked at the very beginning just by looking at the thresholds. Even with the very basic tool such a histogram, and a little subjective evaluation, we could achieve a reasonable amount of segmentation.&lt;/p&gt;
+
+&lt;p&gt;Now, let us try to apply this method on the colour image as well.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;T_hv_red = CCM(col_img[:, :, 0], offset = (0, 1)) + CCM(col_img[:, :, 0], offset = (1, 0))
+T_hv_green = CCM(col_img[:, :, 1], offset = (0, 1)) + CCM(col_img[:, :, 1], offset = (1, 0))
+T_hv_blue = CCM(col_img[:, :, 2], offset = (0, 1)) + CCM(col_img[:, :, 2], offset = (1, 0))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;scores_m1 = np.zeros((3, 256))
+scores_m2 = np.zeros((3, 256))
+
+for s in range(1, 255):
+    score_red = discre_measure(T_hv_red, s)
+    score_green = discre_measure(T_hv_green, s)
+    score_blue = discre_measure(T_hv_blue, s)
+    
+    scores_m1[:, s] =  (score_red[0], score_green[0], score_blue[0])
+    scores_m2[:, s] =  (score_red[1], score_green[1], score_blue[1])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;fig, plots = plt.subplots(1, 2, figsize = (20, 5))     # subplot with 1 row, 2 columns
+
+# subplot 1
+plots[0].plot(scores_m1[0, :], c = &#39;r&#39;)
+plots[0].plot(scores_m1[1, :], c = &#39;g&#39;)
+plots[0].plot(scores_m1[2, :], c = &#39;b&#39;)
+plots[0].set_title(&#39;Measure 1&#39;)
+
+# subplot 2
+plots[1].plot(scores_m2[0, :], c = &#39;r&#39;)
+plots[1].plot(scores_m2[1, :], c = &#39;g&#39;)
+plots[1].plot(scores_m2[2, :], c = &#39;b&#39;)
+plots[1].set_title(&#39;Measure 2&#39;)
+
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./Image%20Segmentation%20Techniques_42_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Note that, for Red and Blue channel, the 2nd measure gives prominent minimums, while for the  Green channel, the prominent minima is obtained by the first measure. Therefore, with some custom tweaking of $K$ and the which measure to choose, you can get a segmentation which is better than methods discussed previously, just because it uses the spatial information, which connects these three channels together.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Exactly same code as before
+thres_R = find_min(scores_m2[0, :], k = 30)
+thres_G = find_min(scores_m1[1, :], k = 25)
+thres_B = find_min(scores_m2[2, :], k = 10)
+
+segment_R = np.expand_dims( segment(col_img[:, :, 0], thres_R) , 2)    # apply segmentation and convert to 3d array
+segment_G = np.expand_dims( segment(col_img[:, :, 1], thres_G) , 2)
+segment_B = np.expand_dims( segment(col_img[:, :, 2], thres_B) , 2)
+
+segment_img = np.concatenate( (segment_R, segment_G, segment_B), axis = 2)
+
+fig, plots = plt.subplots(1,4, figsize = (20, 5))     # subplot with 1 row, 4 columns
+
+# subplot 1
+plots[0].imshow(segment_R[:, :, 0], cmap = &#39;gray&#39;)
+plots[0].set_title(&#39;Segmentation of R channel&#39;)
+
+# subplot 2
+plots[1].imshow(segment_G[:, :, 0], cmap = &#39;gray&#39;)
+plots[1].set_title(&#39;Segmentation of G channel&#39;)
+
+# subplot 3
+plots[2].imshow(segment_B[:, :, 0], cmap = &#39;gray&#39;)
+plots[2].set_title(&#39;Segmentation of B channel&#39;)
+
+# final image
+plots[3].imshow(segment_img)
+plots[3].set_title(&#39;Final segmentation of image&#39;)
+
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./Image%20Segmentation%20Techniques_44_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As it seems, the final segmented image looks better than the previous ones. Note that,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The sky is coloured green, (since the green channel was able to capture that properly)&lt;/li&gt;
+&lt;li&gt;The visible first layer of background, which is the valley, is coloured blue, as blue channel properly captures that.&lt;/li&gt;
+&lt;li&gt;The visible second layer of background, which constitutes what is possibly iceberg (or some rivers) is captures in the red channel (and hence is of brown colour in the final segmentation).&lt;/li&gt;
+&lt;li&gt;The skin of Mona Lisa is capture in red and green channel, and slightly by blue channel, which mixes up to give a different tone for the skin.&lt;/li&gt;
+&lt;li&gt;The dark clothing is not captured through any of the channel segmentation, hence remains dark in the final outcome.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The following are some references if you wish to boost up your knowledge and learn subtle details of the algorithms presented above.&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;F. Deravi and S.K. Pal, &amp;ldquo;Gray Level Thresholding Using Second-order Statistics&amp;rdquo;, Pattern Recogn. Letters, vol. 1, pp.417-422, 1983. &lt;a href=&#34;https://www.isical.ac.in/~sankar/paper/pdf21.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Thresholding_(image_processing)&#34; target=&#34;_blank&#34;&gt;Wikipedia article Thresholding (image processing).&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Otsu%27s_method&#34; target=&#34;_blank&#34;&gt;Wikipedia article Otsu&amp;rsquo;s Method&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Image_segmentation&#34; target=&#34;_blank&#34;&gt;Wikipedia article Image Segmentation&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Linda G. Shapiro and George C. Stockman (2001): “Computer Vision”, pp 279-325, New Jersey, Prentice-Hall, ISBN 0-13-030796-3 &lt;a href=&#34;http://nana.lecturer.pens.ac.id/index_files/referensi/computer_vision/Computer%20Vision.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; &lt;em&gt;The model, Lisa del Giocondo, was a member of the Gherardini family of Florence and Tuscany, and the wife of wealthy Florentine silk merchant Francesco del Giocondo. The Italian name for the painting, La Gioconda, means &amp;lsquo;jocund&amp;rsquo; (&amp;lsquo;happy&amp;rsquo; or &amp;lsquo;jovial&amp;rsquo;) or, literally, &amp;lsquo;the jocund one&amp;rsquo;, a pun on the feminine form of Lisa&amp;rsquo;s married name, Giocondo. In French, the title La Joconde has the same meaning, i.e. to become happy. ~ Wikipedia&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;amp; Finally, stay safe and keep safe your families, friends and neighbours!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Intuitive Introduction to Differential Geometry</title>

@@ -33,12 +33,17 @@
   </url>
   
   <url>
-    <loc>/post/post4/</loc>
-    <lastmod>2020-01-31T00:00:00+00:00</lastmod>
+    <loc>/post/post5/</loc>
+    <lastmod>2020-03-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
+    <lastmod>2020-03-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/post4/</loc>
     <lastmod>2020-01-31T00:00:00+00:00</lastmod>
   </url>
   
