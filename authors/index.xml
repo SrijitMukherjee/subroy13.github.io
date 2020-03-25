@@ -5,7 +5,7 @@
     <link>/authors/</link>
       <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Wed, 25 Mar 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Authors</title>
@@ -15,10 +15,18 @@
     <item>
       <title></title>
       <link>/authors/admin/</link>
-      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       <guid>/authors/admin/</guid>
       <description>&lt;p&gt;I am a student of Masters of Statistics (M.Stat.) in Indian Statistical Institute, Kolkata. My research interests include Applied Statistics in economical, financial and computational fields, Machine Learning, Deep learning and Data Visualization techniques.&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Soham Bonnerjee</title>
+      <link>/authors/soham-bonnerjee/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/soham-bonnerjee/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -42,14 +50,6 @@
       <link>/authors/ritwik-bhaduri/</link>
       <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
       <guid>/authors/ritwik-bhaduri/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Soham Bonnerjee</title>
-      <link>/authors/soham-bonnerjee/</link>
-      <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>/authors/soham-bonnerjee/</guid>
       <description></description>
     </item>
     
