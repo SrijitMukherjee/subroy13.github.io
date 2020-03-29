@@ -13,7 +13,7 @@
     </image>
     
     <item>
-      <title>eSIR - An Epidemiological Model incoportating quaranting effect</title>
+      <title>eSIR - An Epidemiological Model incoportating quarantining effect</title>
       <link>/post/post7/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
       <guid>/post/post7/</guid>
@@ -166,13 +166,20 @@ k \sim \text{Gamma}(2, 0.0001)\\&lt;br /&gt;
 
 &lt;p&gt;Now suppose , data upto time point $t_0$ are observed: $(Y_1, \cdots Y_{t_0})$. We want to predict upto time point $T$. To this end, we generate $M$ MCMC samples, such that for $m \in {1,\cdots, M}$, $(Y_{t_0+1}^{(m)}, \cdots, Y_T)$ is a draw from $Y_t \mid \theta_t, \tau$. The algorihm is described below:&lt;/p&gt;
 
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    &lt;p&gt;&lt;strong&gt;Algorithm:&lt;/strong&gt;&lt;/p&gt;
+
 &lt;p&gt;for $m$ in $1, \cdots, M$&lt;/p&gt;
 
 &lt;p&gt;$\qquad$  for $t$ in $t_0+1,\cdots, T$,&lt;/p&gt;
 
-&lt;p&gt;$\qquad \qquad$  Draw $\theta_t^{(m)}$ from $[\theta_t \mid \theta_{t-1}^{(m)}, \tau^{(m)}]$.&lt;/p&gt;
+&lt;p&gt;$\qquad \qquad$  Draw $\theta_t^{(m)}$ from $[\theta_t \mid \theta_{t-1}^{(m)}, \tau^{(m)}]$&lt;/p&gt;
 
 &lt;p&gt;$\qquad \qquad$  Draw $Y_t^{(m)}$ from $[Y_t \mid \theta_{t}^{(m)}, \tau^{(m)} ]$&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Finally for each time point $t$, $t= t_0+1,\cdots, T$ estimate $Y_t$ by $\hat{Y}_t=\dfrac{1}{M}\displaystyle \sum_{m=1}^M Y_t^{(m)}$.&lt;/p&gt;
 
@@ -501,9 +508,9 @@ ggplot(preds$infected, aes(x = date)) +
     geom_text(x = preds$second.date[1] - 1, y = 0, label = format(preds$second.date[1], &amp;quot;%b %d&amp;quot;), size = 4 )
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;./unnamed-chunk-21-1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./plot2.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Therefore, in Italy, at about June 14, we should see decreasing increments of newly infected persons, and from August 2 onwards, the proportion of infected people should decline.&lt;/p&gt;
+&lt;p&gt;Therefore, in Italy, at about June 24, we should see decreasing increments of newly infected persons, and from August 17 onwards, the proportion of infected people should start to decline.&lt;/p&gt;
 
 &lt;h2 id=&#34;estimation-for-india&#34;&gt;Estimation for India&lt;/h2&gt;
 
@@ -539,7 +546,7 @@ control.params$mclen &amp;lt;- round(control.params$ndraw / control.params$thin)
 mcmc_samples &amp;lt;- do.MCMC(I, R, pi0, init.params, control.params)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;And finally, we perform the prediction till the end of the lockdown, i.e. till $14$-th April, to see the effect of quaranting.&lt;/p&gt;
+&lt;p&gt;And finally, we perform the prediction till the end of the lockdown, i.e. till $14$-th April, to see the effect of quarantining.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pi1 &amp;lt;- c(pi0, rep(0.1, 19))   # from 27th March, it is 19 days of lockdown left 
 preds &amp;lt;- forecast.SIR(19, 25, mcmc_samples, pi = pi1, control.params = control.params, start.date = &amp;quot;2020-03-02&amp;quot;)
@@ -554,7 +561,7 @@ ggplot(preds$infected, aes(x = date)) +
 
 &lt;p&gt;Although it seems that the mean proportion is overestimated during the ovserved period, however the effect of quanting seems to work to a moderate extent, as the estimated proportion stays more or less at the same level. The exact count of the infected people at the end of lockdown, provided that it is maintained properly, should be about $1317$ many infected persons, and about $2114$ confirmed cases of COVID-19.&lt;/p&gt;
 
-&lt;p&gt;Similar to Italy, if we extend its forecast for some more days, and keep the same level of quaranting, the model predictions are given in the following plot.&lt;/p&gt;
+&lt;p&gt;Similar to Italy, if we extend its forecast for some more days, and keep the same level of quarantining, the model predictions are given in the following plot.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pi2 &amp;lt;- c(pi0, rep(0.1, 200)) 
 preds &amp;lt;- forecast.SIR(200, 25, mcmc_samples, pi = pi2, control.params = control.params, start.date = &amp;quot;2020-03-02&amp;quot;)
@@ -571,7 +578,7 @@ ggplot(preds$infected, aes(x = date)) +
 
 &lt;p&gt;&lt;img src=&#34;./unnamed-chunk-25-1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Therefore, as it seems, if we keep the lockdown (as it is now), based on the data, it might take till October to have the proportion of infected people becoming insignificant, provided we keep the same level of quanranting effect. However, from March 18, we should see a decrease in the rate of increment in the number of infected, and from March 30 onwards, we should be at a position from where the number of newly infected persons per day starts to decrease.&lt;/p&gt;
+&lt;p&gt;Therefore, as it seems, if we keep the lockdown (as it is now), based on the data, it might take till October to have the proportion of infected people becoming insignificant, provided we keep the same level of quanranting effect. However, from March 17, we should see a decrease in the rate of increment in the number of infected, and from March 29 onwards, we should be at a position from where the number of newly infected persons per day starts to decrease gradually.&lt;/p&gt;
 
 &lt;p&gt;Since, it is very economically and physically dissatisfying to be in a lockdown (or state of home quarantine till October, where Durga Puja festival is going to occur), we might want to go outside. In that case, assuming $\pi(t)$ increases to $0.5$, which is indeed less than 1, due to our increasing awareness of the scenario, then, the predicted situation would look like this.&lt;/p&gt;
 
@@ -589,11 +596,11 @@ ggplot(preds$infected, aes(x = date)) +
     geom_text(x = preds$second.date[1] + 7, y = 3e-4, label = format(preds$second.date[1], &amp;quot;%b %d&amp;quot;), size = 4 )
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;./unnamed-chunk-26-1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./plot5.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;This scenario would be very severe for us, since it would affect about $4\%$ of the urban population, on about June 28, and then it would start to decrease gradually. However, it would take almost 2 years, to make this epidemic insignificant, provided there will be no generally accepted antiviral medicine for COVID-19 till then.&lt;/p&gt;
+&lt;p&gt;This scenario would be very severe for us, since it would affect about $6\%$ of the urban population on about June 27, and then it would start to decrease gradually. However, it would take almost 2 years, to make this epidemic insignificant, provided there would be no generally accepted antiviral medicine for COVID-19 till then.&lt;/p&gt;
 
-&lt;p&gt;Hence, we must avoid such situation at all costs, and to counter it, we must stay home, at a shelter in place home quaranting atmosphere.&lt;/p&gt;
+&lt;p&gt;Hence, we must avoid such situation at all costs, and to counter it, we must stay home, at a shelter in place home quarantining atmosphere.&lt;/p&gt;
 
 &lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
 
@@ -604,7 +611,7 @@ ggplot(preds$infected, aes(x = date)) +
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;It does not talk about underreporting. When you are in a place like India, underreporting is a major issue, as there might be some people who are affected by coronavirus, but lightly takes their symptoms as seasonal cold.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;In the basis of SIR model, we assume the existence of only 3 states. To incorporate the effect of quaranting, we only considering the people in Infected state. However, there might be people who are infected, and can spread the disease, yet they do not have the symptoms, and hence does not fall under the effect of quaranting.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;In the basis of SIR model, we assume the existence of only 3 states. To incorporate the effect of quarantining, we only considering the people in Infected state. However, there might be people who are infected, and can spread the disease, yet they do not have the symptoms, and hence does not fall under the effect of quarantining.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;We shall try to deal with these shortcomings in our next post, where we shall consider building more out of this particular model.&lt;/p&gt;

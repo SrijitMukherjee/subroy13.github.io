@@ -111,7 +111,7 @@
   
   <meta property="og:site_name" content="Subhrajyoty Roy">
   <meta property="og:url" content="/post/post7/">
-  <meta property="og:title" content="eSIR - An Epidemiological Model incoportating quaranting effect | Subhrajyoty Roy">
+  <meta property="og:title" content="eSIR - An Epidemiological Model incoportating quarantining effect | Subhrajyoty Roy">
   <meta property="og:description" content="This is the second post in a series of posts to give a basic understanding of statistical modelling of epidemiology. In this post, we shall explore the performance of stochastic eSIR model. Then, we shall use it to generate projections for the epidemic situation in India."><meta property="og:image" content="/post/post7/featured.jpg">
   <meta property="twitter:image" content="/post/post7/featured.jpg"><meta property="og:locale" content="en-us">
   
@@ -146,7 +146,7 @@
     "@type": "WebPage",
     "@id": "/post/post7/"
   },
-  "headline": "eSIR - An Epidemiological Model incoportating quaranting effect",
+  "headline": "eSIR - An Epidemiological Model incoportating quarantining effect",
   
   "image": [
     "/post/post7/featured.jpg"
@@ -188,7 +188,7 @@
 
 <script data-ad-client="ca-pub-8206710020783397" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-  <title>eSIR - An Epidemiological Model incoportating quaranting effect | Subhrajyoty Roy</title>
+  <title>eSIR - An Epidemiological Model incoportating quarantining effect | Subhrajyoty Roy</title>
 
 </head>
 
@@ -478,7 +478,7 @@
 
 
 <div class="article-container pt-3">
-  <h1>eSIR - An Epidemiological Model incoportating quaranting effect</h1>
+  <h1>eSIR - An Epidemiological Model incoportating quarantining effect</h1>
 
   
   <p class="page-subtitle">During the time of shelter-in-place lockdown due to global pandemic of COVID-19</p>
@@ -712,13 +712,20 @@ k \sim \text{Gamma}(2, 0.0001)\\<br />
 
 <p>Now suppose , data upto time point $t_0$ are observed: $(Y_1, \cdots Y_{t_0})$. We want to predict upto time point $T$. To this end, we generate $M$ MCMC samples, such that for $m \in {1,\cdots, M}$, $(Y_{t_0+1}^{(m)}, \cdots, Y_T)$ is a draw from $Y_t \mid \theta_t, \tau$. The algorihm is described below:</p>
 
+<div class="alert alert-note">
+  <div>
+    <p><strong>Algorithm:</strong></p>
+
 <p>for $m$ in $1, \cdots, M$</p>
 
 <p>$\qquad$  for $t$ in $t_0+1,\cdots, T$,</p>
 
-<p>$\qquad \qquad$  Draw $\theta_t^{(m)}$ from $[\theta_t \mid \theta_{t-1}^{(m)}, \tau^{(m)}]$.</p>
+<p>$\qquad \qquad$  Draw $\theta_t^{(m)}$ from $[\theta_t \mid \theta_{t-1}^{(m)}, \tau^{(m)}]$</p>
 
 <p>$\qquad \qquad$  Draw $Y_t^{(m)}$ from $[Y_t \mid \theta_{t}^{(m)}, \tau^{(m)} ]$</p>
+
+  </div>
+</div>
 
 <p>Finally for each time point $t$, $t= t_0+1,\cdots, T$ estimate $Y_t$ by $\hat{Y}_t=\dfrac{1}{M}\displaystyle \sum_{m=1}^M Y_t^{(m)}$.</p>
 
@@ -1047,9 +1054,9 @@ ggplot(preds$infected, aes(x = date)) +
     geom_text(x = preds$second.date[1] - 1, y = 0, label = format(preds$second.date[1], &quot;%b %d&quot;), size = 4 )
 </code></pre>
 
-<p><img src="./unnamed-chunk-21-1.png" alt="" /></p>
+<p><img src="./plot2.jpeg" alt="" /></p>
 
-<p>Therefore, in Italy, at about June 14, we should see decreasing increments of newly infected persons, and from August 2 onwards, the proportion of infected people should decline.</p>
+<p>Therefore, in Italy, at about June 24, we should see decreasing increments of newly infected persons, and from August 17 onwards, the proportion of infected people should start to decline.</p>
 
 <h2 id="estimation-for-india">Estimation for India</h2>
 
@@ -1085,7 +1092,7 @@ control.params$mclen &lt;- round(control.params$ndraw / control.params$thin) * c
 mcmc_samples &lt;- do.MCMC(I, R, pi0, init.params, control.params)
 </code></pre>
 
-<p>And finally, we perform the prediction till the end of the lockdown, i.e. till $14$-th April, to see the effect of quaranting.</p>
+<p>And finally, we perform the prediction till the end of the lockdown, i.e. till $14$-th April, to see the effect of quarantining.</p>
 
 <pre><code class="language-r">pi1 &lt;- c(pi0, rep(0.1, 19))   # from 27th March, it is 19 days of lockdown left 
 preds &lt;- forecast.SIR(19, 25, mcmc_samples, pi = pi1, control.params = control.params, start.date = &quot;2020-03-02&quot;)
@@ -1100,7 +1107,7 @@ ggplot(preds$infected, aes(x = date)) +
 
 <p>Although it seems that the mean proportion is overestimated during the ovserved period, however the effect of quanting seems to work to a moderate extent, as the estimated proportion stays more or less at the same level. The exact count of the infected people at the end of lockdown, provided that it is maintained properly, should be about $1317$ many infected persons, and about $2114$ confirmed cases of COVID-19.</p>
 
-<p>Similar to Italy, if we extend its forecast for some more days, and keep the same level of quaranting, the model predictions are given in the following plot.</p>
+<p>Similar to Italy, if we extend its forecast for some more days, and keep the same level of quarantining, the model predictions are given in the following plot.</p>
 
 <pre><code class="language-r">pi2 &lt;- c(pi0, rep(0.1, 200)) 
 preds &lt;- forecast.SIR(200, 25, mcmc_samples, pi = pi2, control.params = control.params, start.date = &quot;2020-03-02&quot;)
@@ -1117,7 +1124,7 @@ ggplot(preds$infected, aes(x = date)) +
 
 <p><img src="./unnamed-chunk-25-1.png" alt="" /></p>
 
-<p>Therefore, as it seems, if we keep the lockdown (as it is now), based on the data, it might take till October to have the proportion of infected people becoming insignificant, provided we keep the same level of quanranting effect. However, from March 18, we should see a decrease in the rate of increment in the number of infected, and from March 30 onwards, we should be at a position from where the number of newly infected persons per day starts to decrease.</p>
+<p>Therefore, as it seems, if we keep the lockdown (as it is now), based on the data, it might take till October to have the proportion of infected people becoming insignificant, provided we keep the same level of quanranting effect. However, from March 17, we should see a decrease in the rate of increment in the number of infected, and from March 29 onwards, we should be at a position from where the number of newly infected persons per day starts to decrease gradually.</p>
 
 <p>Since, it is very economically and physically dissatisfying to be in a lockdown (or state of home quarantine till October, where Durga Puja festival is going to occur), we might want to go outside. In that case, assuming $\pi(t)$ increases to $0.5$, which is indeed less than 1, due to our increasing awareness of the scenario, then, the predicted situation would look like this.</p>
 
@@ -1135,11 +1142,11 @@ ggplot(preds$infected, aes(x = date)) +
     geom_text(x = preds$second.date[1] + 7, y = 3e-4, label = format(preds$second.date[1], &quot;%b %d&quot;), size = 4 )
 </code></pre>
 
-<p><img src="./unnamed-chunk-26-1.png" alt="" /></p>
+<p><img src="./plot5.jpeg" alt="" /></p>
 
-<p>This scenario would be very severe for us, since it would affect about $4\%$ of the urban population, on about June 28, and then it would start to decrease gradually. However, it would take almost 2 years, to make this epidemic insignificant, provided there will be no generally accepted antiviral medicine for COVID-19 till then.</p>
+<p>This scenario would be very severe for us, since it would affect about $6\%$ of the urban population on about June 27, and then it would start to decrease gradually. However, it would take almost 2 years, to make this epidemic insignificant, provided there would be no generally accepted antiviral medicine for COVID-19 till then.</p>
 
-<p>Hence, we must avoid such situation at all costs, and to counter it, we must stay home, at a shelter in place home quaranting atmosphere.</p>
+<p>Hence, we must avoid such situation at all costs, and to counter it, we must stay home, at a shelter in place home quarantining atmosphere.</p>
 
 <h1 id="conclusion">Conclusion</h1>
 
@@ -1150,7 +1157,7 @@ ggplot(preds$infected, aes(x = date)) +
 <ol>
 <li><p>It does not talk about underreporting. When you are in a place like India, underreporting is a major issue, as there might be some people who are affected by coronavirus, but lightly takes their symptoms as seasonal cold.</p></li>
 
-<li><p>In the basis of SIR model, we assume the existence of only 3 states. To incorporate the effect of quaranting, we only considering the people in Infected state. However, there might be people who are infected, and can spread the disease, yet they do not have the symptoms, and hence does not fall under the effect of quaranting.</p></li>
+<li><p>In the basis of SIR model, we assume the existence of only 3 states. To incorporate the effect of quarantining, we only considering the people in Infected state. However, there might be people who are infected, and can spread the disease, yet they do not have the symptoms, and hence does not fall under the effect of quarantining.</p></li>
 </ol>
 
 <p>We shall try to deal with these shortcomings in our next post, where we shall consider building more out of this particular model.</p>
@@ -1204,7 +1211,7 @@ ggplot(preds$infected, aes(x = date)) +
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/post/post7/&amp;text=eSIR%20-%20An%20Epidemiological%20Model%20incoportating%20quaranting%20effect" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=/post/post7/&amp;text=eSIR%20-%20An%20Epidemiological%20Model%20incoportating%20quarantining%20effect" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -1217,7 +1224,7 @@ ggplot(preds$infected, aes(x = date)) +
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/post/post7/&amp;t=eSIR%20-%20An%20Epidemiological%20Model%20incoportating%20quaranting%20effect" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=/post/post7/&amp;t=eSIR%20-%20An%20Epidemiological%20Model%20incoportating%20quarantining%20effect" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -1230,7 +1237,7 @@ ggplot(preds$infected, aes(x = date)) +
       
       
       <li>
-        <a href="mailto:?subject=eSIR%20-%20An%20Epidemiological%20Model%20incoportating%20quaranting%20effect&amp;body=/post/post7/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=eSIR%20-%20An%20Epidemiological%20Model%20incoportating%20quarantining%20effect&amp;body=/post/post7/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -1243,7 +1250,7 @@ ggplot(preds$infected, aes(x = date)) +
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/post/post7/&amp;title=eSIR%20-%20An%20Epidemiological%20Model%20incoportating%20quaranting%20effect" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=/post/post7/&amp;title=eSIR%20-%20An%20Epidemiological%20Model%20incoportating%20quarantining%20effect" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -1256,7 +1263,7 @@ ggplot(preds$infected, aes(x = date)) +
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=eSIR%20-%20An%20Epidemiological%20Model%20incoportating%20quaranting%20effect%20/post/post7/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=eSIR%20-%20An%20Epidemiological%20Model%20incoportating%20quarantining%20effect%20/post/post7/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -1269,7 +1276,7 @@ ggplot(preds$infected, aes(x = date)) +
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/post/post7/&amp;title=eSIR%20-%20An%20Epidemiological%20Model%20incoportating%20quaranting%20effect" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=/post/post7/&amp;title=eSIR%20-%20An%20Epidemiological%20Model%20incoportating%20quarantining%20effect" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
