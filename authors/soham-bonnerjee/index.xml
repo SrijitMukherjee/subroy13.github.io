@@ -614,8 +614,6 @@ ggplot(preds$infected, aes(x = date)) +
 &lt;li&gt;&lt;p&gt;In the basis of SIR model, we assume the existence of only 3 states. To incorporate the effect of quarantining, we only considering the people in Infected state. However, there might be people who are infected, and can spread the disease, yet they do not have the symptoms, and hence does not fall under the effect of quarantining.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;We shall try to deal with these shortcomings in our next post, where we shall consider building more out of this particular model.&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;WHO Guidelines to STAY SAFE:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;

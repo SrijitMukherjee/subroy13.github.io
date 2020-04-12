@@ -39,7 +39,7 @@
   
   
   
-  <meta name="theme-color" content="#222222">
+  <meta name="theme-color" content="#5F6BA3">
   
 
   
@@ -75,7 +75,7 @@
   
   
   
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather%7CLobster%7CLora%7CUbuntu+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather%7COleo+Script%7CLora%7CUbuntu+Mono&display=swap">
   
 
   
@@ -534,7 +534,7 @@
     <div class="article-style">
       
 
-<p>This is a rather long post, but here we shall about something really interesting, about how to mix the content of a picture with the style from another picture, called Neural Style Transfer. <strong>Texture Networks</strong> is a Neural Network approach devised by Dmitry Ulyanov, Vadim Lebedev, Andrea Vedaldi and Victor Lempitsky in 2016, which is extremely useful to synthesize new types of textures (which is extensively used in production of clothings with exclusive designs), as well as being able to work as a style transfer mechanism.</p>
+<p>This is a rather long post, but here we shall about something really interesting, about how to mix the content of a picture with the style from another picture, called Neural Style Transfer. <strong>Texture Networks</strong> is a Neural Network approach devised by Dmitry Ulyanov, Vadim Lebedev, Andrea Vedaldi and Victor Lempitsky in 2016, which is extremely useful to synthesize new types of textures (which is extensively used in the production of clothing with exclusive designs), as well as being able to work as a style transfer mechanism.</p>
 
 <h2 id="what-is-neural-style-transfer">What is Neural Style Transfer?</h2>
 
@@ -546,13 +546,13 @@
 
 <p><img src="./out3.png"/></p>
 
-<p>So, I think now one should get the idea. Neural Style transfer combines the aesthestics of an image on to another image (here the image of the girl named Karya, which has been provided by <a href="https://github.com/DmitryUlyanov/texture_nets" target="_blank">Dmitry Ulyanov&rsquo;s Github</a>), retaining the content of the image (i.e. retaining the girl in the stylized output). Note that, the effect is particularly visible in 2nd and 3rd images, whereas, for first image, the style aspect is greatly emphasized.</p>
+<p>So, I think now one should get the idea. Neural Style transfer combines the aesthetics of an image on to another image (here the image of the girl named Karya, which has been provided by <a href="https://github.com/DmitryUlyanov/texture_nets" target="_blank">Dmitry Ulyanov&rsquo;s Github</a>), retaining the content of the image (i.e. retaining the girl in the stylized output). Note that, the effect is particularly visible in 2nd and 3rd images, whereas, for the first image, the style aspect is greatly emphasized.</p>
 
 <p>I am going to discuss exactly how I created those stylized images, and hopefully, after reading this, you would be able to reproduce similar results with images of your choice.</p>
 
 <h2 id="prerequisites">Prerequisites</h2>
 
-<p>I am not talking about things you need to know beforehand to understand intricate details of the mechanism, but the software requirements that I will be using to create something similar to texture networks. So, at the very beginning, I import all required packages in <code>python</code>. Also, I shall be using a <strong>NVidia GeForce GTX 1060Ti</strong> Graphics card with CUDA computing capability 6.1, which is not at par with the GPU devices used at professional level, but this speeds up the computations by a lot rather than using a CPU.</p>
+<p>I am not talking about things you need to know beforehand to understand the intricate details of the mechanism, but the software requirements that I will be using to create something similar to texture networks. So, at the very beginning, I import all the required packages in <code>python</code>. Also, I shall be using an <strong>NVidia GeForce GTX 1060Ti</strong> Graphics card with CUDA computing capability 6.1, which is not at par with the GPU devices used at a professional level, but this speeds up the computations by a lot rather than using a CPU.</p>
 
 <pre><code class="language-python">import tensorflow as tf
 import numpy as np
@@ -577,15 +577,15 @@ import matplotlib.pyplot as plt
 
 <h2 id="making-some-utility-functions">Making Some Utility Functions</h2>
 
-<p>Before proceeding with describing how the Texture Network is created, I would create some utility functions to help us later. For instance, this utility functions will allow us to load images from a path, and visualize an image given its tensor.</p>
+<p>Before proceeding with describing how the Texture Network is created, I would create some utility functions to help us later. For starters, these utility functions will allow us to load images from a path, and visualize an image given its tensor.</p>
 
 <h3 id="what-is-a-tensor">What is a tensor?</h3>
 
-<p>Let us revisit some high school mathematics for a bit. We know that matrix is an 2-dimensional array of numbers, if simply put. <a href="https://en.wikipedia.org/wiki/Tensor" target="_blank">Tensor</a> is a generalization of that, it is an n-dimensional array.</p>
+<p>Let us revisit some high school mathematics for a bit. We know that matrix is a 2-dimensional array of numbers, if simply put. <a href="https://en.wikipedia.org/wiki/Tensor" target="_blank">Tensor</a> is a generalization of that, it is an n-dimensional array.</p>
 
 <p>Now, when a mathematician introduces matrix, it is essentially an efficient way of representing linear functions from a vector space to another vector space. A <strong>Vector Space</strong> is a space comprised of vectors, and a vector is something that satisfies some mathematical properties. But, we don&rsquo;t need that. Think of vectors in the most simple way, it is something that has a magnitude and a direction, like speed.</p>
 
-<p>Coming back to tensor, it is introduced as an efficient representation of <strong>Multilinear Maps</strong> between vector spaces. Let $V_1, V_2, \dots V_n, W$ be some vector spaces, then, a function $f : V_1 \times V_2 \times\dots V_n \rightarrow W$ is said to be multilinear map, if $f(v_1, v_2, \dots v_i, \dots v_n)$ is linear in $v_i$ given all other arguments $v_1, \dots v_{i-1}, v_{i+1}, \dots v_n$ are fixed. And such linearity holds of any of its arguments. So, if you know mathematics of Linear Algebra and Matrices, then you would clearly understand that tensor is just a multidimensional generalization of matrices.</p>
+<p>Coming back to tensor, it is introduced as an efficient representation of <strong>Multilinear Maps</strong> between vector spaces. Let $V_1, V_2, \dots V_n, W$ be some vector spaces, then, a function $f : V_1 \times V_2 \times\dots V_n \rightarrow W$ is said to be a multilinear map, if $f(v_1, v_2, \dots v_i, \dots v_n)$ is linear in $v_i$ given all other arguments $v_1, \dots v_{i-1}, v_{i+1}, \dots v_n$ are fixed. And such linearity holds of any of its arguments. So, if you are comfortable with the mathematics of Linear Algebra and Matrices, then you would clearly understand that tensor is just a multidimensional generalization of matrices.</p>
 
 <h3 id="what-an-image-is-do-to-with-tensor">What an Image is do to with Tensor?</h3>
 

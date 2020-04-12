@@ -614,8 +614,6 @@ ggplot(preds$infected, aes(x = date)) +
 &lt;li&gt;&lt;p&gt;In the basis of SIR model, we assume the existence of only 3 states. To incorporate the effect of quarantining, we only considering the people in Infected state. However, there might be people who are infected, and can spread the disease, yet they do not have the symptoms, and hence does not fall under the effect of quarantining.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;We shall try to deal with these shortcomings in our next post, where we shall consider building more out of this particular model.&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;WHO Guidelines to STAY SAFE:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1770,25 +1768,25 @@ plt.show()
       <guid>/post/post4/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 
-&lt;p&gt;In high school level, we generally hear about &lt;a href=&#34;https://en.wikipedia.org/wiki/Euclidean_geometry&#34;&gt;Euclidean Geometry&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Analytic_geometry&#34;&gt;Co-ordinate Geometry&lt;/a&gt;. If you are familiar in Co-ordinate Geometry, then you should be able to feel that theorems and consequences in Euclidean Geometry can be naturally extended to Co-ordinate Geometry. However, Co-ordinate Geometry is extremely specific to the co-ordinate system that we are using, for instance, if we are working on a plane (i.e. similar to Euclidean Geometry), then a planar co-ordinate system or &lt;a href=&#34;https://en.wikipedia.org/wiki/Cartesian_coordinate_system&#34;&gt;Catersian co-ordinate system&lt;/a&gt; is naturally used. However, when we are performing geometry on a sphere, naturally, &lt;a href=&#34;https://en.wikipedia.org/wiki/Polar_coordinate_system&#34;&gt;Polar coordinate system&lt;/a&gt; is used. However, suppose you are a Geographist, who wants to devise a coordinate system for the natural geography of Earth, clearly a Polar or Spherical Coordinate systen does not work, since the shape is Earth is similar to that of an ellipsoid. So, it could be very much useful if we can generalize the idea of coordinate system, to naturally represent any type of curvature, for instance, the image shown at the very beginning.&lt;/p&gt;
+&lt;p&gt;In high school level, we generally hear about &lt;a href=&#34;https://en.wikipedia.org/wiki/Euclidean_geometry&#34;&gt;Euclidean Geometry&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Analytic_geometry&#34;&gt;Co-ordinate Geometry&lt;/a&gt;. If you are familiar in Co-ordinate Geometry, then you should be able to feel that theorems and consequences in Euclidean Geometry can be naturally extended to Co-ordinate Geometry. However, Co-ordinate Geometry is extremely specific to the coordinate system that we are using, for instance, if we are working on a plane (i.e. similar to Euclidean Geometry), then a planar coordinate system or &lt;a href=&#34;https://en.wikipedia.org/wiki/Cartesian_coordinate_system&#34;&gt;Cartesian co-ordinate system&lt;/a&gt; is naturally used. However, when we are performing geometry on a sphere, naturally, a &lt;a href=&#34;https://en.wikipedia.org/wiki/Polar_coordinate_system&#34;&gt;Polar coordinate system&lt;/a&gt; is used. However, suppose you are a Geographist, who wants to devise a coordinate system for the natural geography of Earth, clearly a Polar or Spherical Coordinate system does not work, since the shape is Earth is similar to that of an ellipsoid. So, it could be very much useful if we can generalize the idea of a coordinate system, to naturally represent any type of curvature, for instance, the image shown at the very beginning.&lt;/p&gt;
 
-&lt;p&gt;Most of the recent advancements of geometry are developed for the specific needs of visualizing different abstract concepts of diverse mathematical fields. Generalizing the idea of coordinate system would allow one to think some abstract set (or family or collection of objects pertaining to the related mathematical theory) as a curvature, to which we can associate geometrical objects and visualize them in a different and distinguished way.&lt;/p&gt;
+&lt;p&gt;Most of the recent advancements of geometry are developed for the specific needs of visualizing different abstract concepts of diverse mathematical fields. Generalizing the idea of the coordinate system would allow one to think some abstract set (or family or collection of objects pertaining to the related mathematical theory) as a curvature, to which we can associate geometrical objects and visualize them in a different and distinguished way.&lt;/p&gt;
 
 &lt;h1 id=&#34;a-general-curvature-manifold&#34;&gt;A General Curvature: Manifold&lt;/h1&gt;
 
-&lt;p&gt;Suppose you want to create a map of the earth, however, earth is not flat (at least I am not a believer of &lt;a href=&#34;https://en.wikipedia.org/wiki/Flat_Earth&#34;&gt;Flat Earth Theory&lt;/a&gt;), so one would primarily find it confusing that we can create a flat map of earth. For example consider the following map from &lt;a href=&#34;https://www.welt-atlas.de/worldatlas&#34;&gt;World Atlas&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Suppose you want to create a map of the earth, however, the earth is not flat (at least I am not a believer of &lt;a href=&#34;https://en.wikipedia.org/wiki/Flat_Earth&#34;&gt;Flat Earth Theory&lt;/a&gt;), so one would primarily find it confusing that we can create a flat map of the earth. For example, consider the following map from &lt;a href=&#34;https://www.welt-atlas.de/worldatlas&#34;&gt;World Atlas&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;figure&gt;&lt;img src=&#34;earth-map.png&#34; alt=&#34;&#34;&gt;&lt;/figure&gt;&lt;/p&gt;
 
 &lt;p&gt;But see that, we have a single location (like some part of Alaska &amp;amp; Russia) being mapped to two different places in the map. Also note that, due to the curvature of earth&#39;s surface, the supposedly gridlines are mapped to curved lines on the map. But if you look at it, there is a nice structure in the map, all the curved gridlines look very natural and aesthetically pleasing to understand. Moreover, if you draw tangent on the horizontal curves and tangent on the vertical curves, at their intersection point, you would find them meeting at a right angle. And if you are good at the field of &lt;strong&gt;Complex Analysis&lt;/strong&gt;, then you would probably figure out that it has something to do with analytic functions.&lt;/p&gt;
 
-&lt;p&gt;Let us formalize the intutions that we have. We have an arbitrary set $S$, which can be called a &lt;strong&gt;Manifold&lt;/strong&gt;, if we have a one-one mapping $\phi : S\rightarrow \mathbb{R}^n$ for some $n\in \mathbb{N}$. Since the mapping is one-one, we can identify each point of $S$ by a $n$-length vector $v \in \mathbb{R}^n$, which can be used to serve as a coordinate system for the points in $S$. Going back to our example of earth, to identify a location in the surface of the earth, we lay out the map and find the x-coordinates (latitude) and the y-coordinates (longitude) of the particular location. So, we have a mapping (created by geographists) that maps $S$, the surface of the earth to $\mathbb{R}^2$. As you might have guessed, the number $n$ is the dimension of the manifold.&lt;/p&gt;
+&lt;p&gt;Let us formalize the intuitions that we have. We have an arbitrary set $S$, which can be called a &lt;strong&gt;Manifold&lt;/strong&gt;, if we have a one-one mapping $\phi : S\rightarrow \mathbb{R}^n$ for some $n\in \mathbb{N}$. Since the mapping is one-one, we can identify each point of $S$ by a $n$-length vector $v \in \mathbb{R}^n$, which can be used to serve as a coordinate system for the points in $S$. Going back to our example of earth, to identify a location in the surface of the earth, we lay out the map and find the x-coordinates (latitude) and the y-coordinates (longitude) of the particular location. So, we have a mapping (created by geographists) that maps $S$, the surface of the earth to $\mathbb{R}^2$. As you might have guessed, the number $n$ is the dimension of the manifold.&lt;/p&gt;
 
 &lt;p&gt;Let me cite another motivating example from &lt;a href=&#34;https://en.wikipedia.org/wiki/Manifold&#34;&gt;Wikipedia page about Manifolds&lt;/a&gt; to show that only one mapping may not be good enough.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Circle_with_overlapping_manifold_charts.svg/1024px-Circle_with_overlapping_manifold_charts.svg.png&#34; width = &#34;200px&#34;&gt;&lt;/p&gt;
 
-&lt;p&gt;Note that, the circle is essentially a curved line, with ends being merged together. Clearly, it is a one dimensional structure, although embedded on a 2-dimensional plane. So, to interpret it as a manifold, we need to create (a or several) one-one mapping(s) from it to $\mathbb{R}$. Let us consider the circle having center at origin and having radius equal to 1 unit. Here, we shall use $4$ different one-one mappings from part of the circle to the unit interval $[0, 1]$ which is a subset of $\mathbb{R}$.&lt;/p&gt;
+&lt;p&gt;Note that, the circle is essentially a curved line, with ends being merged together. Clearly, it is a one dimensional structure, although embedded on a 2-dimensional plane. So, to interpret it as a manifold, we need to create (a or several) one-one mapping(s) from it to $\mathbb{R}$. Let us consider the circle having center at the origin and having radius equal to 1 unit. Here, we shall use $4$ different one-one mappings from part of the circle to the unit interval $[0, 1]$ which is a subset of $\mathbb{R}$.&lt;/p&gt;
 
 &lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[\begin{align*}
 \phi_{Top}((x, y)) &amp; = (x + 1)/2 \text{ if } y \geq 0\\
@@ -1811,7 +1809,7 @@ plt.show()
 
 &lt;p&gt;&lt;figure&gt;&lt;img src=&#34;curves.jpeg&#34; alt=&#34;&#34;&gt;&lt;/figure&gt;&lt;/p&gt;
 
-&lt;p&gt;Although the curve (the path shown in red) is a little jagged on the surface, usually mathematicians deal with the curves which are differentiable and smooth, and is easy to deal with mathematically. A curve $\gamma$ is a continuous function from $\mathbb{R}$ or some interval of $\mathbb{R}$ to the manifold $S$. For example consider a path $\gamma : [0, 1] \rightarrow S$, then $\gamma(0)$ and $\gamma(1)$ denotes the two endpoints of the curve.&lt;/p&gt;
+&lt;p&gt;Although the curve (the path shown in red) is a little jagged on the surface, usually mathematicians deal with the curves which are differentiable and smooth, and is easy to deal with mathematically. A curve $\gamma$ is a continuous function from $\mathbb{R}$ or some interval of $\mathbb{R}$ to the manifold $S$. For example, consider a path $\gamma : [0, 1] \rightarrow S$, then $\gamma(0)$ and $\gamma(1)$ denotes the two endpoints of the curve.&lt;/p&gt;
 
 &lt;h2 id=&#34;working-towards-tangents&#34;&gt;Working towards tangents&lt;/h2&gt;
 
@@ -1819,14 +1817,14 @@ plt.show()
 
 &lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[\gamma&#39;(x_0) = \lim_{x \rightarrow x_0}\dfrac{\gamma(x) - \gamma(x_0)}{(x - x_0)}\]&lt;/span&gt;&lt;/p&gt;
 
-&lt;p&gt;We could have done that precisely, but here&#39;s the catch, is the substraction $\gamma(x) - \gamma(x_0)$ is even possible? Since, in general, both these are elements of $S$, which being an arbitrary set, may not support simple operations like addition or multiplication. There are two ways we can circumvent the problem:&lt;/p&gt;
+&lt;p&gt;We could have done that precisely, but here&#39;s the catch, is the subtraction $\gamma(x) - \gamma(x_0)$ is even possible? Since, in general, both these are elements of $S$, which being an arbitrary set, may not support simple operations like addition or multiplication. There are two ways we can circumvent the problem:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Restrict the type of the manifold to fields or some special algebraic structures to allow support for addition or multiplication.&lt;/li&gt;
-&lt;li&gt;Consider an arbitrary function $f : S \rightarrow\mathbb{R}$, which can be composed with the curve to define a derivative like thing. Then, we might try to explore possible ways to remove the arbitrary function from the expression.&lt;/li&gt;
+&lt;li&gt;Consider an arbitrary function $f : S \rightarrow\mathbb{R}$, which can be composed with the curve to define a derivative-like object. Then, we might try to explore possible ways to remove the arbitrary function from the expression.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;The 2nd approach is the one univocally taken by mathematical community. Here, we consider any function $f$, and consider the derivative;&lt;/p&gt;
+&lt;p&gt;The 2nd approach is the one univocally taken by the mathematical community. Here, we consider any function $f$, and consider the derivative;&lt;/p&gt;
 
 &lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[\frac{d}{dt}f(\gamma(t)) 
 = \lim_{h \rightarrow 0}\dfrac{f(\gamma(t+h)) - f(\gamma(t))}{h}\]&lt;/span&gt;&lt;/p&gt;
@@ -1836,7 +1834,7 @@ plt.show()
 &lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[\frac{d}{dt}f(\gamma(t)) 
 = \sum_{i=1}^{n} \frac{\partial f}{\partial\xi_i} \frac{d\gamma_i(t)}{dt}\]&lt;/span&gt;&lt;/p&gt;
 
-&lt;p&gt;Note that, since we took $f$ to be an arbitrary function, the tangent is given by $\sum_{i=1}^{n} \frac{d\gamma_i(t)}{dt} \frac{\partial}{\partial\xi_i}$, i.e. some linear combination (based on which curve we are walking on) of the partial differential operators $\frac{\partial}{\partial\xi_i}$. Hence, the tangent space, i.e. the space (or set) containing all such tangents at a point $p$ on the manifold $S$, is given by a vector space, with basis being the partial differential operators $\left\{ \left( \frac{\partial}{\partial\xi_i} \right)_p : i = 1, 2, \dots n\right\}$.&lt;/p&gt;
+&lt;p&gt;Note that, since we took $f$ to be an arbitrary function, the tangent is given by $\sum_{i=1}^{n} \frac{d\gamma_i(t)}{dt} \frac{\partial}{\partial\xi_i}$, i.e. some linear combination (based on which curve we are walking on) of the partial differential operators $\frac{\partial}{\partial\xi_i}$. Hence, the tangent space, i.e. the space (or set) containing all such tangents at a point $p$ on the manifold $S$, is given by a vector space, with the basis being the partial differential operators $\left\{ \left( \frac{\partial}{\partial\xi_i} \right)_p : i = 1, 2, \dots n\right\}$.&lt;/p&gt;
 
 &lt;h2 id=&#34;intuitive-understanding-of-tangents&#34;&gt;Intuitive Understanding of Tangents&lt;/h2&gt;
 
@@ -1850,9 +1848,9 @@ plt.show()
 
 &lt;h1 id=&#34;from-tangents-to-riemannian-manifold&#34;&gt;From Tangents to Riemannian Manifold&lt;/h1&gt;
 
-&lt;p&gt;Now that we have a geometry of tangent space and the manifold, the next thing one would try to find is distance between two points on the manifold. We know that, linear algebra allows us to define distance through a norm or with inner product in general, and we have a vector space here to perform these linear algebra. So, for each point $p \in S$, i.e. point on the manifold, the tangent space $T_pS$ at $p$, is a vector space, hence can be equipped with a inner product. Such a manifold is called &lt;strong&gt;Riemannian&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Now that we have a geometry of tangent space and the manifold, the next thing one would try to find is the distance between two points on the manifold. We know that linear algebra allows us to define distance through a norm or with inner product in general, and we have a vector space here to perform these techniques from linear algebra. So, for each point $p \in S$, i.e. point on the manifold, the tangent space $T_pS$ at $p$, is a vector space, hence can be equipped with an inner product. Such a manifold is called &lt;strong&gt;Riemannian&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Let us use the notation $(\partial_i)_p$ to denote the basis vector $(\frac{\partial}{\partial\xi_i})_p$ in the tangent space $T_pS$. Also, we define an inner product $\langle (\partial_i)_p, (\partial_j)_p\rangle = (g_{ij})_p$. Then, we can define the matrix $G_p$ with entries $\left\{ (g_{ij})_p \right\}_{i, j =1}^n$, which constitutes the inner product matrix on the tangent space $T_pS$. Due to this being an inner product matrix, it must be positive definite matrix.&lt;/p&gt;
+&lt;p&gt;Let us use the notation $(\partial_i)_p$ to denote the basis vector $(\frac{\partial}{\partial\xi_i})_p$ in the tangent space $T_pS$. Also, we define an inner product $\langle (\partial_i)_p, (\partial_j)_p\rangle = (g_{ij})_p$. Then, we can define the matrix $G_p$ with entries $\left\{ (g_{ij})_p \right\}_{i, j =1}^n$, which constitutes the inner product matrix on the tangent space $T_pS$. Due to this being an inner product matrix, it must be a positive definite matrix.&lt;/p&gt;
 
 &lt;p&gt;Also, note that, the length of a vector in that space is;&lt;/p&gt;
 
@@ -1866,19 +1864,19 @@ plt.show()
 
 &lt;h1 id=&#34;generalizing-straight-lines&#34;&gt;Generalizing Straight Lines&lt;/h1&gt;
 
-&lt;p&gt;Using these concept of lengths, we can define &lt;strong&gt;Geodesics&lt;/strong&gt;, which are kind of a generalized version of straight line. In a euclidean plane, a striaght line is a axiomatically defined as the curve which has minimum distance when connecting two points.&lt;/p&gt;
+&lt;p&gt;Using these concepts of lengths, we can define &lt;strong&gt;Geodesics&lt;/strong&gt;, which are kind of a generalized version of a straight line. In a Euclidean plane, a straight line is axiomatically defined as the shortest curve connecting two points.&lt;/p&gt;
 
 &lt;p&gt;&lt;figure&gt;&lt;img src=&#34;geodesic.jpg&#34; alt=&#34;&#34;&gt;&lt;/figure&gt;&lt;/p&gt;
 
-&lt;p&gt;In this figure for example, the blue points shown on the plane, are connected via a curve which entirely lies on the plane, hence the curve with smallest such distance is the straight line segment joining those points. However, if we take two points on the surface of the sphere, then the shortest possible curve joining those two, which entirely lies on the surface of that sphere is a curved line. For instance, if you think of going from Hong Kong to New York, you cannot travel in a straight line, since that would require you to dig through earth&#39;s crust, make a tunnel to travel through. However, if we consider the shortest possible curve, which a aeroplane takes, is actually a curved line in 3-dimensional space, but is natural analogue to the gridlines (i.e. the meridians or latitudal lines), hence seems like a straight line with respect to the surface of the manifold.&lt;/p&gt;
+&lt;p&gt;In this figure, for example, the blue points shown on the plane, are connected via a curve which entirely lies on the plane, hence the curve with smallest such distance is the straight line segment joining those points. However, if we take two points on the surface of the sphere, then the shortest possible curve joining those two, which entirely lies on the surface of that sphere is a curved line. For instance, if you think of going from Hong Kong to New York, you cannot travel in a straight line, since that would require you to dig through earth&#39;s crust, make a tunnel to travel through. However, if we consider the shortest possible curve, which an aeroplane takes, is actually a curved line in 3-dimensional space, but is natural analogue to the gridlines (i.e. the meridians or latitudinal lines), hence seems like a straight line with respect to the surface of the manifold.&lt;/p&gt;
 
-&lt;p&gt;Hence, as we know precisely how we can define lengths on a Riemannian manifold, we can move on to compute geodesic. Intuitively, for many cases, finding the geodesic is easier, once we use the coordinate functions. Note that, $\phi: S\rightarrow \mathbb{R}^n$ is our coordinate map of the manifold $S$. Hence, any geodesic in the manifold would in principal, be a geodesic in the coordinate system (which happens under certain tricky mathematical conditions), hence, we can, in principle, find the geodesic connecting the point $a, b\in S$, as;&lt;/p&gt;
+&lt;p&gt;Hence, as we know precisely how we can define lengths on a Riemannian manifold, we can move on to compute geodesic. Intuitively, for many cases, finding the geodesic is easier, once we use the coordinate functions. Note that, $\phi: S\rightarrow \mathbb{R}^n$ is our coordinate map of the manifold $S$. Hence, any geodesic in the manifold would in principle, be a geodesic in the coordinate system (which happens under certain tricky mathematical conditions), hence, we can, in principle, find the geodesic connecting the point $a, b\in S$, as;&lt;/p&gt;
 
 &lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[\left\{ \phi^{-1}(\phi(a) t + (1-t)\phi(b)) : t \in [0, 1] \right\}\]&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;since $\phi(a) t + (1-t)\phi(b)$, as $t\in[0, 1]$ is the equation of the straight line connecting the coordinates $\phi(a)$ and $\phi(b)$ in the coordinate space, and then for each point on that line, we invert it back to the manifold to get a geodesic connecting $a$ and $b$.&lt;/p&gt;
 
-&lt;p&gt;However, such intuitive things break down under a very general conditions. Surprisingly enough, on the surface of a manifold, you can create a generalized triangle, whose sides are geodesics, and have the sum of the angles of the triangle be greater or less than 180 degrees. For instance, we see one such example on our beloved planet as well.&lt;/p&gt;
+&lt;p&gt;However, such intuitive things break down under very general conditions. Surprisingly enough, on the surface of a manifold, you can create a generalized triangle, whose sides are geodesics, and have the sum of the angles of the triangle be greater or less than 180 degrees. For instance, we see one such example on our beloved planet as well.&lt;/p&gt;
 
 &lt;div class=&#34;row&#34;&gt;
 &lt;div class =&#34;col-md-6&#34;&gt;&lt;img src = &#34;more180.jpg&#34; width=&#34;100%&#34;&gt;&lt;/div&gt;
@@ -1905,7 +1903,7 @@ plt.show()
       <guid>/post/post3/</guid>
       <description>
 
-&lt;p&gt;This is a rather long post, but here we shall about something really interesting, about how to mix the content of a picture with the style from another picture, called Neural Style Transfer. &lt;strong&gt;Texture Networks&lt;/strong&gt; is a Neural Network approach devised by Dmitry Ulyanov, Vadim Lebedev, Andrea Vedaldi and Victor Lempitsky in 2016, which is extremely useful to synthesize new types of textures (which is extensively used in production of clothings with exclusive designs), as well as being able to work as a style transfer mechanism.&lt;/p&gt;
+&lt;p&gt;This is a rather long post, but here we shall about something really interesting, about how to mix the content of a picture with the style from another picture, called Neural Style Transfer. &lt;strong&gt;Texture Networks&lt;/strong&gt; is a Neural Network approach devised by Dmitry Ulyanov, Vadim Lebedev, Andrea Vedaldi and Victor Lempitsky in 2016, which is extremely useful to synthesize new types of textures (which is extensively used in the production of clothing with exclusive designs), as well as being able to work as a style transfer mechanism.&lt;/p&gt;
 
 &lt;h2 id=&#34;what-is-neural-style-transfer&#34;&gt;What is Neural Style Transfer?&lt;/h2&gt;
 
@@ -1917,13 +1915,13 @@ plt.show()
 
 &lt;p&gt;&lt;img src=&#34;./out3.png&#34;/&gt;&lt;/p&gt;
 
-&lt;p&gt;So, I think now one should get the idea. Neural Style transfer combines the aesthestics of an image on to another image (here the image of the girl named Karya, which has been provided by &lt;a href=&#34;https://github.com/DmitryUlyanov/texture_nets&#34; target=&#34;_blank&#34;&gt;Dmitry Ulyanov&amp;rsquo;s Github&lt;/a&gt;), retaining the content of the image (i.e. retaining the girl in the stylized output). Note that, the effect is particularly visible in 2nd and 3rd images, whereas, for first image, the style aspect is greatly emphasized.&lt;/p&gt;
+&lt;p&gt;So, I think now one should get the idea. Neural Style transfer combines the aesthetics of an image on to another image (here the image of the girl named Karya, which has been provided by &lt;a href=&#34;https://github.com/DmitryUlyanov/texture_nets&#34; target=&#34;_blank&#34;&gt;Dmitry Ulyanov&amp;rsquo;s Github&lt;/a&gt;), retaining the content of the image (i.e. retaining the girl in the stylized output). Note that, the effect is particularly visible in 2nd and 3rd images, whereas, for the first image, the style aspect is greatly emphasized.&lt;/p&gt;
 
 &lt;p&gt;I am going to discuss exactly how I created those stylized images, and hopefully, after reading this, you would be able to reproduce similar results with images of your choice.&lt;/p&gt;
 
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 
-&lt;p&gt;I am not talking about things you need to know beforehand to understand intricate details of the mechanism, but the software requirements that I will be using to create something similar to texture networks. So, at the very beginning, I import all required packages in &lt;code&gt;python&lt;/code&gt;. Also, I shall be using a &lt;strong&gt;NVidia GeForce GTX 1060Ti&lt;/strong&gt; Graphics card with CUDA computing capability 6.1, which is not at par with the GPU devices used at professional level, but this speeds up the computations by a lot rather than using a CPU.&lt;/p&gt;
+&lt;p&gt;I am not talking about things you need to know beforehand to understand the intricate details of the mechanism, but the software requirements that I will be using to create something similar to texture networks. So, at the very beginning, I import all the required packages in &lt;code&gt;python&lt;/code&gt;. Also, I shall be using an &lt;strong&gt;NVidia GeForce GTX 1060Ti&lt;/strong&gt; Graphics card with CUDA computing capability 6.1, which is not at par with the GPU devices used at a professional level, but this speeds up the computations by a lot rather than using a CPU.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
 import numpy as np
@@ -1948,15 +1946,15 @@ import matplotlib.pyplot as plt
 
 &lt;h2 id=&#34;making-some-utility-functions&#34;&gt;Making Some Utility Functions&lt;/h2&gt;
 
-&lt;p&gt;Before proceeding with describing how the Texture Network is created, I would create some utility functions to help us later. For instance, this utility functions will allow us to load images from a path, and visualize an image given its tensor.&lt;/p&gt;
+&lt;p&gt;Before proceeding with describing how the Texture Network is created, I would create some utility functions to help us later. For starters, these utility functions will allow us to load images from a path, and visualize an image given its tensor.&lt;/p&gt;
 
 &lt;h3 id=&#34;what-is-a-tensor&#34;&gt;What is a tensor?&lt;/h3&gt;
 
-&lt;p&gt;Let us revisit some high school mathematics for a bit. We know that matrix is an 2-dimensional array of numbers, if simply put. &lt;a href=&#34;https://en.wikipedia.org/wiki/Tensor&#34; target=&#34;_blank&#34;&gt;Tensor&lt;/a&gt; is a generalization of that, it is an n-dimensional array.&lt;/p&gt;
+&lt;p&gt;Let us revisit some high school mathematics for a bit. We know that matrix is a 2-dimensional array of numbers, if simply put. &lt;a href=&#34;https://en.wikipedia.org/wiki/Tensor&#34; target=&#34;_blank&#34;&gt;Tensor&lt;/a&gt; is a generalization of that, it is an n-dimensional array.&lt;/p&gt;
 
 &lt;p&gt;Now, when a mathematician introduces matrix, it is essentially an efficient way of representing linear functions from a vector space to another vector space. A &lt;strong&gt;Vector Space&lt;/strong&gt; is a space comprised of vectors, and a vector is something that satisfies some mathematical properties. But, we don&amp;rsquo;t need that. Think of vectors in the most simple way, it is something that has a magnitude and a direction, like speed.&lt;/p&gt;
 
-&lt;p&gt;Coming back to tensor, it is introduced as an efficient representation of &lt;strong&gt;Multilinear Maps&lt;/strong&gt; between vector spaces. Let $V_1, V_2, \dots V_n, W$ be some vector spaces, then, a function $f : V_1 \times V_2 \times\dots V_n \rightarrow W$ is said to be multilinear map, if $f(v_1, v_2, \dots v_i, \dots v_n)$ is linear in $v_i$ given all other arguments $v_1, \dots v_{i-1}, v_{i+1}, \dots v_n$ are fixed. And such linearity holds of any of its arguments. So, if you know mathematics of Linear Algebra and Matrices, then you would clearly understand that tensor is just a multidimensional generalization of matrices.&lt;/p&gt;
+&lt;p&gt;Coming back to tensor, it is introduced as an efficient representation of &lt;strong&gt;Multilinear Maps&lt;/strong&gt; between vector spaces. Let $V_1, V_2, \dots V_n, W$ be some vector spaces, then, a function $f : V_1 \times V_2 \times\dots V_n \rightarrow W$ is said to be a multilinear map, if $f(v_1, v_2, \dots v_i, \dots v_n)$ is linear in $v_i$ given all other arguments $v_1, \dots v_{i-1}, v_{i+1}, \dots v_n$ are fixed. And such linearity holds of any of its arguments. So, if you are comfortable with the mathematics of Linear Algebra and Matrices, then you would clearly understand that tensor is just a multidimensional generalization of matrices.&lt;/p&gt;
 
 &lt;h3 id=&#34;what-an-image-is-do-to-with-tensor&#34;&gt;What an Image is do to with Tensor?&lt;/h3&gt;
 

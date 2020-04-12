@@ -2,8 +2,8 @@
   "name": "Subhrajyoty Roy",
   "short_name": "Subhrajyoty Roy",
   "lang": "en-us",
-  "theme_color": "#222222",
-  "background_color": "#222222",
+  "theme_color": "#5F6BA3",
+  "background_color": "#5F6BA3",
   "icons": [{
     "src": "../img/icon-192.png",
     "sizes": "192x192",
