@@ -5,12 +5,35 @@
     <link>/authors/admin/</link>
       <atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
     <description>Subhrajyoty Roy</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Sat, 28 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Wed, 15 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Subhrajyoty Roy</title>
       <link>/authors/admin/</link>
     </image>
+    
+    <item>
+      <title>Application of tf-idf in extracting meaningful words</title>
+      <link>/post/post8/</link>
+      <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/post/post8/</guid>
+      <description>
+
+&lt;iframe
+       src=&#34;./post8.html&#34;
+       width=&#34;100%&#34;
+       height=&#34;1000px&#34;
+       style=&#34;border:none;&#34;&gt;
+&lt;/iframe&gt;
+
+&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.tidytextmining.com/&#34; target=&#34;_blank&#34;&gt;Text Minining in R&lt;/a&gt; - A Tidy Approach by Julia Silge and David Robinson (2020-03-07)&lt;/li&gt;
+&lt;li&gt;Package Vignette: &lt;a href=&#34;https://cran.r-project.org/web/packages/gutenbergr/vignettes/intro.html&#34; target=&#34;_blank&#34;&gt;gutenbergr: Search and download public domain texts from Project Gutenberg&lt;/a&gt;  by David Robinson (2019-09-10)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>eSIR - An Epidemiological Model incoportating quarantining effect</title>
