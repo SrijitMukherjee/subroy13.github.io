@@ -106,25 +106,28 @@
     </item>
     
     <item>
-      <title>Application of tf-idf in extracting meaningful words</title>
-      <link>/post/post8/</link>
-      <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/post/post8/</guid>
+      <title>Natural Language Processing in R</title>
+      <link>/project/nlp-r/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/project/nlp-r/</guid>
       <description>
 
-&lt;iframe
-       src=&#34;./post8.html&#34;
-       width=&#34;100%&#34;
-       height=&#34;1000px&#34;
-       style=&#34;border:none;&#34;&gt;
-&lt;/iframe&gt;
+&lt;h2 id=&#34;aim-of-the-project&#34;&gt;Aim of the Project&lt;/h2&gt;
 
-&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+&lt;p&gt;This project has several goals:&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.tidytextmining.com/&#34; target=&#34;_blank&#34;&gt;Text Minining in R&lt;/a&gt; - A Tidy Approach by Julia Silge and David Robinson (2020-03-07)&lt;/li&gt;
-&lt;li&gt;Package Vignette: &lt;a href=&#34;https://cran.r-project.org/web/packages/gutenbergr/vignettes/intro.html&#34; target=&#34;_blank&#34;&gt;gutenbergr: Search and download public domain texts from Project Gutenberg&lt;/a&gt;  by David Robinson (2019-09-10)&lt;/li&gt;
-&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Understanding different concepts of Natural Language Processing and implement them in &lt;code&gt;R&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Understanding the preprocessing part of text mining extensively, so that it can be applied to different native languages, like Bengali, which is my native language.&lt;/li&gt;
+&lt;li&gt;Exploring changepoints in literatures by crucially examining the distribution of different words as a time series.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;project-reports&#34;&gt;Project Reports&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://subroy13.github.io/NLPinR/Reports/chapter1.html&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;Text Mining in R :&lt;/strong&gt;&lt;/a&gt; Here, we use the &lt;code&gt;tidytext&lt;/code&gt; package in &lt;code&gt;R&lt;/code&gt; to understand some basics about text mining, as well as, explore functionalities of the package. We shall look at the usage of &lt;code&gt;tf-idf&lt;/code&gt; and how it can be used as a filtration to obtain the important words from the documents of a corpus. Click &lt;a href=&#34;https://subroy13.github.io/NLPinR/Reports/chapter1.html&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt; to take a look at the report.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://subroy13.github.io/NLPinR/Reports/chapter2.html&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;Text Classification in R :&lt;/strong&gt;&lt;/a&gt; Here, we conduct a text classification task based on the dataset of US president&amp;rsquo;s speeches. We collect the speeches for all United States presidents, and then given an input of a speech, we try to predict whether that president belongs to the Republican or Democratic party. We also wish to understand, which words are more important to make such predictions, as well as understand the latent philosophy of those parties based on corresponding president&amp;rsquo;s speeches. Click &lt;a href=&#34;https://subroy13.github.io/NLPinR/Reports/chapter2.html&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt; to take a look at the report.&lt;/li&gt;
+&lt;/ol&gt;
 </description>
     </item>
     
