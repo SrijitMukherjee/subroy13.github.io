@@ -37,13 +37,17 @@ Supplementary notes can be added here, including [code and math](https://sourcet
 
 --&gt;
 
-&lt;p&gt;Tea Auctions across India occur as an ascending open auction, conducted online. Before the auction, a sample of the tea lot  is sent to potential bidders, and a group of tea-testers. The seller’s reserve price is a confidential function of the tea-tester’s valuation, which also acts as a signal to the bidders. In this paper, we work with the dataset from a single tea auction house, J Thomas, of tea dust category, on 49 weeks in the time span of 2018-2019, with the following objectives in mind:&lt;/p&gt;
+&lt;p&gt;Tea (Camellia sinensis) is consumed across the world but its production is geographically limited to a few areas with China, India and Sri Lanka being the major producers. The tea industry is one of the oldest organized industries in India which derives its importance by being one of the major foreign exchange earners and for playing a vital role towards employment generation as the industry is highly labour intensive.&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;Objective classification of the various categories of tea dust into a more manageable, and robust classification of the tea dust, based on source and grades.&lt;/li&gt;
-&lt;li&gt;Predict which tea lots would be sold in the auction market, and a model for the final price conditioned on sale.&lt;/li&gt;
-&lt;li&gt;To study the distribution of price and ratio of the sold tea auction lots and Discussion on the possibility of automation of the process without human intervention.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Tea is heterogeneous both over season and region, and even intra region and its demand is very price sensitive. Price elasticities for black tea vary between -0.32 and -0.80, which means that a 10% increase in black tea retail prices
+will lead to a decline in demand for black tea between 3.2% and 8%, according to Food and Agricultural Organisation (FAO).&lt;/p&gt;
+
+&lt;p&gt;Due to the variation of quality, tea within same grades are sold at a very wide range of prices in an auction. For
+example, on any given auction day, say Broken Pekoe (BP) variety would sell at a range starting from as low as Rs 60 to Rs 250 per kg. This is another reason making standardization difficult.&lt;/p&gt;
+
+&lt;p&gt;From picking up tea leaves to reach at our cup as a refreshing drink, an inherent process connecting these steps is an auction mechanism. Manufactured tea leaves is dispatched from various gardens/ estates to the auction centres for sale through the appointed auctioneers, who upon tasting samples from the tea packets, gives a subjective valuation of the tea, which is supposed to be an educated guess about the price of the tea packet. Based on this valuation, a base price is set for the online auction, and is sold to the highest bidding buyer, who in turn is a retailer of the tea in the publicly reachable market.&lt;/p&gt;
+
+&lt;p&gt;Given the above complexities, the aim in this study is to evaluate the feasibility of automating this pricing process to the extent of dispensing with the manual testing and valuation steps.&lt;/p&gt;
 
 &lt;p&gt;More details about the paper is available &lt;a href=&#34;https://www.mcxindia.com/education-training/publications/commodity-insights-yearbook&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>

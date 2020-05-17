@@ -5,12 +5,52 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Thu, 07 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Tags</title>
       <link>/tags/</link>
     </image>
+    
+    <item>
+      <title>Clustering</title>
+      <link>/tags/clustering/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/clustering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gaussian Mixture Model</title>
+      <link>/tags/gaussian-mixture-model/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/gaussian-mixture-model/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gibbs Sampling</title>
+      <link>/tags/gibbs-sampling/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/gibbs-sampling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mixture of Regression</title>
+      <link>/tags/mixture-of-regression/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/mixture-of-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Price Modelling</title>
+      <link>/tags/price-modelling/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/price-modelling/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Machine Learning</title>
@@ -49,38 +89,6 @@
       <link>/tags/auction-theory/</link>
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       <guid>/tags/auction-theory/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Clustering</title>
-      <link>/tags/clustering/</link>
-      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>/tags/clustering/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gaussian Mixture Model</title>
-      <link>/tags/gaussian-mixture-model/</link>
-      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>/tags/gaussian-mixture-model/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mixture of Regression</title>
-      <link>/tags/mixture-of-regression/</link>
-      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>/tags/mixture-of-regression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Price Modelling</title>
-      <link>/tags/price-modelling/</link>
-      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>/tags/price-modelling/</guid>
       <description></description>
     </item>
     

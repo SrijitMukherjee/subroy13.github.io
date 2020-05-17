@@ -5,12 +5,58 @@
     <link>/authors/abhinandan-dalal/</link>
       <atom:link href="/authors/abhinandan-dalal/index.xml" rel="self" type="application/rss+xml" />
     <description>Abhinandan Dalal</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Thu, 07 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Abhinandan Dalal</title>
       <link>/authors/abhinandan-dalal/</link>
     </image>
+    
+    <item>
+      <title>The Information Content of Taster&#39;s Valuation in Tea Auctions of India</title>
+      <link>/publication/information-content-tea-arxiv/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      <guid>/publication/information-content-tea-arxiv/</guid>
+      <description>&lt;!--
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;Cite&lt;/em&gt; button above to cite this publication.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+Supplementary notes can be added here, including [code and math](https://sourcethemes.com/academic/docs/writing-markdown-latex/).
+
+--&gt;
+
+&lt;p&gt;This is an extension of my other &lt;a href=&#34;https://subroy13.github.io/publication/tea-auction-feasibility/&#34; target=&#34;_blank&#34;&gt;work&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Tea auctions across India occur as an ascending open auction, conducted online. Before the auction, a sample of the tea lot is sent to potential bidders and a group of tea tasters. The seller&amp;rsquo;s reserve price is a confidential function of the tea taster&amp;rsquo;s valuation, which also possibly acts as a signal to the bidders.&lt;/p&gt;
+
+&lt;p&gt;In this paper, we work with the dataset from a single tea auction house, J Thomas, of tea dust category, on 49 weeks in the time span of 2018-2019, with the following objectives in mind:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Objective classification of the various categories of tea dust (25) into a more manageable, and robust classification of the tea dust, based on source and grades.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Predict which tea lots would be sold in the auction market, and a model for the final price conditioned on sale.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;To study the distribution of price and ratio of the sold tea auction lots.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Make a detailed analysis of the information obtained from the tea taster&amp;rsquo;s valuation and its impact on the final auction price.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The model used has shown various promising results on cross-validation. The importance of valuation is firmly established through analysis of causal relationship between the valuation and the actual price. The authors hope that this study of the properties and the detailed analysis of the role played by the various factors, would be significant in the decision making process for the players of the auction game, pave the way to remove the manual interference in an attempt to automate the auction procedure, and improve tea quality in markets.&lt;/p&gt;
+
+&lt;p&gt;More details about the paper is available &lt;a href=&#34;https://arxiv.org/abs/2005.02814&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Feasibility of Transparent Price Discovery in Tea through Auction in India</title>
@@ -37,13 +83,17 @@ Supplementary notes can be added here, including [code and math](https://sourcet
 
 --&gt;
 
-&lt;p&gt;Tea Auctions across India occur as an ascending open auction, conducted online. Before the auction, a sample of the tea lot  is sent to potential bidders, and a group of tea-testers. The seller’s reserve price is a confidential function of the tea-tester’s valuation, which also acts as a signal to the bidders. In this paper, we work with the dataset from a single tea auction house, J Thomas, of tea dust category, on 49 weeks in the time span of 2018-2019, with the following objectives in mind:&lt;/p&gt;
+&lt;p&gt;Tea (Camellia sinensis) is consumed across the world but its production is geographically limited to a few areas with China, India and Sri Lanka being the major producers. The tea industry is one of the oldest organized industries in India which derives its importance by being one of the major foreign exchange earners and for playing a vital role towards employment generation as the industry is highly labour intensive.&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;Objective classification of the various categories of tea dust into a more manageable, and robust classification of the tea dust, based on source and grades.&lt;/li&gt;
-&lt;li&gt;Predict which tea lots would be sold in the auction market, and a model for the final price conditioned on sale.&lt;/li&gt;
-&lt;li&gt;To study the distribution of price and ratio of the sold tea auction lots and Discussion on the possibility of automation of the process without human intervention.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Tea is heterogeneous both over season and region, and even intra region and its demand is very price sensitive. Price elasticities for black tea vary between -0.32 and -0.80, which means that a 10% increase in black tea retail prices
+will lead to a decline in demand for black tea between 3.2% and 8%, according to Food and Agricultural Organisation (FAO).&lt;/p&gt;
+
+&lt;p&gt;Due to the variation of quality, tea within same grades are sold at a very wide range of prices in an auction. For
+example, on any given auction day, say Broken Pekoe (BP) variety would sell at a range starting from as low as Rs 60 to Rs 250 per kg. This is another reason making standardization difficult.&lt;/p&gt;
+
+&lt;p&gt;From picking up tea leaves to reach at our cup as a refreshing drink, an inherent process connecting these steps is an auction mechanism. Manufactured tea leaves is dispatched from various gardens/ estates to the auction centres for sale through the appointed auctioneers, who upon tasting samples from the tea packets, gives a subjective valuation of the tea, which is supposed to be an educated guess about the price of the tea packet. Based on this valuation, a base price is set for the online auction, and is sold to the highest bidding buyer, who in turn is a retailer of the tea in the publicly reachable market.&lt;/p&gt;
+
+&lt;p&gt;Given the above complexities, the aim in this study is to evaluate the feasibility of automating this pricing process to the extent of dispensing with the manual testing and valuation steps.&lt;/p&gt;
 
 &lt;p&gt;More details about the paper is available &lt;a href=&#34;https://www.mcxindia.com/education-training/publications/commodity-insights-yearbook&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
