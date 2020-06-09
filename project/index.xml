@@ -5,12 +5,78 @@
     <link>/project/</link>
       <atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© All rights reserved for contents only, 2019</copyright><lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Projects</title>
       <link>/project/</link>
     </image>
+    
+    <item>
+      <title>COVID 19 Tracker</title>
+      <link>/project/covid19-tracker/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>/project/covid19-tracker/</guid>
+      <description>
+
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;&amp;lsquo;COVID-19 Tracker&amp;rsquo; is a web application (dashboard) to visualize COVID-19 situations across different states and districts of India, and is primarily focused on developing prediction for the infected and recovered people under different hypothetical scenarios.&lt;/p&gt;
+
+&lt;p&gt;&amp;lsquo;COVID - 19 Tracker&amp;rsquo; primarily helps predicting the spread of COVID based on a modified extended e-SIR model. It analyzes districts and state levels and represents a prediction of COVID-19 spread for various scenarios with different possible dates of lockdown relaxation, followed by varying degrees of social distancing guidelines that may be adopted post-lockdown. It also proposes possible strategies to contain the COVID-19 spread in each district depending on fraction of the population that will be infected at the peak. That can help to manage the medical supply chain management.&lt;/p&gt;
+
+&lt;p&gt;The dashboard is availble &lt;a href=&#34;http://covid-tracker.iimv.ac.in:3939/covid/&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;features&#34;&gt;Features&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;It is the second dashboard to talk about prediction of COVID-19 situation for India, after PRAKRITI (developed by IIT Delhi).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;It delivers dynamically updating reproduction rate (the average number of secondary people infected by an infectious person before he/she either recovers or dies) at the district level.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;It delivers a prediction at a district level which more closely resembles to the assumptions taken by epidemiological models due to similar demographical characteristics.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The estimate of the date when infection is at peak is also given. It also warns about a second wave of COVID cases if there is one.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;demo&#34;&gt;Demo&lt;/h1&gt;
+
+&lt;h2 id=&#34;desktop-view&#34;&gt;Desktop View&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;desktop_view.jpg&#34; width = &#34;600px&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;tablet-view&#34;&gt;Tablet View&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;tablet_view.jpg&#34; width = &#34;400px&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;mobile-view&#34;&gt;Mobile View&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;mobile_view.jpg&#34; width = &#34;250px&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;demo-video&#34;&gt;Demo Video&lt;/h2&gt;
+
+&lt;p&gt;This video shows an introductory demonstration about how to use the web application (dashboard) and introduces its various components.&lt;/p&gt;
+
+&lt;video controls&gt;
+  &lt;source src=&#34;demo.mp4&#34; type=&#34;video/mp4&#34;&gt;
+  Your browser does not support the video. Please update your web browser.
+&lt;/video&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This video does not contain any sound.&lt;/p&gt;
+
+&lt;h1 id=&#34;acknowledgements&#34;&gt;Acknowledgements&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;I thank my mentors Prof. Anirban Ghatak, and Prof. Shivshanker Singh Patel, both of them are currently faculty at IIMV for their useful guidance.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I thank my friend Soham Bonnerjee, who was a constant technical support to make it happen.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I thank Indian Institute of Management, Vishakhapatnam for their monetary support and their technical support to set up the necessary server to host the application.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I thank Prof. Diganta Mukherjee of ISI, Kolkata to introduce me to these amazing mentors.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>Natural Language Processing in R</title>

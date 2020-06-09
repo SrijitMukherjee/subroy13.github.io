@@ -33,6 +33,31 @@
   </url>
   
   <url>
+    <loc>/project/covid19-tracker/</loc>
+    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/epidemiological-modelling/</loc>
+    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/project/</loc>
+    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r-shinyapps/</loc>
+    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/authors/admin/</loc>
     <lastmod>2020-05-07T00:00:00+00:00</lastmod>
   </url>
@@ -93,11 +118,6 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-05-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/publication/information-content-tea-arxiv/</loc>
     <lastmod>2020-05-07T00:00:00+00:00</lastmod>
   </url>
@@ -114,11 +134,6 @@
   
   <url>
     <loc>/project/nlp-r/</loc>
-    <lastmod>2020-04-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/project/</loc>
     <lastmod>2020-04-20T00:00:00+00:00</lastmod>
   </url>
   
